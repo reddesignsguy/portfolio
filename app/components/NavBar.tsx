@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export default function NavBar() {
   return (
-    <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <nav className="bg-transparent absolute w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-8 py-11">
         <Link href="">
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             Work
@@ -38,15 +38,15 @@ export default function NavBar() {
           className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
           id="navbar-sticky"
         >
-          <ul className="flex flex-col p-4 md:p-0 mt-4 text-3xl font-bold border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <ul className="flex flex-col p-4 md:p-0 mt-4 text-3xl font-bold border   md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
             <li>
-              <a
-                href="#"
-                className="block py-2 px-3 text-white bg-#373737-700 rounded md:bg-transparent md:text-#ffffff-700 md:p-0 md:dark:text-white"
+              <Link
+                href="/"
+                className="block py-2 px-3 text-white  rounded md:bg-transparent md:text-#ffffff-700 md:p-0 md:dark:text-white"
                 aria-current="page"
               >
                 Albany Patriawan
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

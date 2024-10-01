@@ -37,7 +37,7 @@ export default function EngineeringPage() {
           </p> */}
         </div>
       </div>
-      <div className="max-w-7xl mx-auto grid grid-cols-2  grid-rows-1 gap-4 text-2xl p-8">
+      <div className="max-w-7xl mx-auto grid grid-cols-2  grid-rows-1 gap-4 text-2xl min-h-[70vh] ">
         <div className="p-4 text-white text-center">
           <h2 className="font-bold text-4xl">Game Dev:</h2>
           <div className="m-5">
@@ -119,18 +119,8 @@ export default function EngineeringPage() {
               ></img>
             </div>
           </div>
-          <div className="max-w-2xl px-16 mx-auto">
-            {/* <Carousel>
-              {slides.map((s, i) => (
-                <img key={i} src={s}></img>
-              ))}
-            </Carousel> */}
-          </div>
         </div>
       </div>
-      {/* <h1 className="font-medium text-2xl mt-72">
-        Check out my <u>coding and engineering </u> work
-      </h1> */}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
         <Link href="/inertia">
