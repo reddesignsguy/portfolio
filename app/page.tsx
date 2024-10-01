@@ -37,7 +37,7 @@ export default function EngineeringPage() {
           </p> */}
         </div>
       </div>
-      <div className="grid grid-cols-2  grid-rows-1 gap-4 text-2xl p-8">
+      <div className="max-w-7xl mx-auto grid grid-cols-2  grid-rows-1 gap-4 text-2xl p-8">
         <div className="p-4 text-white text-center">
           <h2 className="font-bold text-4xl">Game Dev:</h2>
           <div className="m-5">
