@@ -5,6 +5,7 @@ import Carousel from "../components/Carousel";
 export default function Inertia() {
   return (
     <div className="font-[family-name:var(--font-geist-sans)] max-w-7xl mx-auto mt-56 p-8">
+      <NavBar />
       <div className="grid grid-cols-2  grid-rows-1 gap-20">
         {/* <img className="m-8" src="static/vectors/guide-vector.svg"></img> */}
         <div className="">
