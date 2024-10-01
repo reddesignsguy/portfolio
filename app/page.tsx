@@ -3,6 +3,7 @@
 import Image from "next/image";
 import NavBar from "./components/NavBar";
 import Carousel from "./components/Carousel";
+import Link from "next/link";
 
 const slides = [
   "https://i.ibb.co/ncrXc2V/1.png",
@@ -13,10 +14,10 @@ const slides = [
 
 export default function EngineeringPage() {
   return (
-    <div className="font-[family-name:var(--font-geist-sans)] max-w-7xl m-auto">
+    <div className="font-[family-name:var(--font-geist-sans)] max-w-8xl m-auto">
       <div className="bg-gradient-to-r from-indigo-500"></div>
       <NavBar />
-      <div className="max-w-full mx-auto flex items-center justify-between min-h-screen  ">
+      <div className="max-w-7xl mx-auto flex items-center justify-between min-h-screen  ">
         <img className="w-80" src="/color_brain.png" />
         <div className="ml-10 ">
           <h1 className="text-4xl font-bold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
@@ -69,13 +70,6 @@ export default function EngineeringPage() {
               ></img>
             </div>
           </div>
-          <div className="max-w-2xl px-16 mx-auto">
-            <Carousel>
-              {slides.map((s, i) => (
-                <img key={i} src={s}></img>
-              ))}
-            </Carousel>
-          </div>
         </div>
         <div className="p-4 text-white text-center">
           <h2 className="font-bold text-4xl">Web Dev:</h2>
@@ -126,17 +120,44 @@ export default function EngineeringPage() {
             </div>
           </div>
           <div className="max-w-2xl px-16 mx-auto">
-            <Carousel>
+            {/* <Carousel>
               {slides.map((s, i) => (
                 <img key={i} src={s}></img>
               ))}
-            </Carousel>
+            </Carousel> */}
           </div>
         </div>
       </div>
-      <h1 className="font-medium text-2xl mt-72">
+      {/* <h1 className="font-medium text-2xl mt-72">
         Check out my <u>coding and engineering </u> work
-      </h1>
+      </h1> */}
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+        <Link href="/inertia">
+          <img
+            src="/static/projects/abyss/Thumbnail.png"
+            className="w-full h-full object-cover"
+          />
+        </Link>
+        <Link href="/inertia">
+          <img
+            src="/static/projects/inertia/Thumbnail.png"
+            className="w-full h-full object-cover"
+          />
+        </Link>
+        <Link href="/inertia">
+          <img
+            src="/static/projects/inertia/Thumbnail.png"
+            className="w-full h-full object-cover"
+          />
+        </Link>
+        <Link href="/inertia">
+          <img
+            src="/static/projects/inertia/Thumbnail.png"
+            className="w-full h-full object-cover"
+          />
+        </Link>
+      </div>
     </div>
   );
 }
