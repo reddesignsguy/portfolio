@@ -19,10 +19,11 @@ export default function EngineeringPage() {
       <div className="max-w-full mx-auto flex items-center justify-between min-h-screen  ">
         <img className="w-80" src="/color_brain.png" />
         <div className="ml-10 ">
-          <h1 className="text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-            The left side of my brain.
+          <h1 className="text-4xl font-bold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+            Hi, I'm Albany! I'm a game developer and software engineer based in
+            the Bay Area.
           </h1>
-          <p className=" max-w-2xl leading-5 mt-6 mb-6 text-lg font-normal  lg:text-xl dark:text-#d0d0d0-400 whitespace text-left">
+          {/* <p className=" max-w-2xl leading-5 mt-6 mb-6 text-lg font-normal  lg:text-xl dark:text-#d0d0d0-400 whitespace text-left">
             Just as the simple law of gravity,{" "}
             <span className="text-pink-400">F = mg</span>, shaped <br />{" "}
             galaxies, stars, planets, our solar system, Earth, and ultimately
@@ -32,7 +33,7 @@ export default function EngineeringPage() {
             <span className="text-pink-400"> simple, robust systems </span>
             are the foundation for building functionally complex and scalable
             software.
-          </p>
+          </p> */}
         </div>
       </div>
       <div className="grid grid-cols-2  grid-rows-1 gap-4 text-2xl p-8">
@@ -136,44 +137,6 @@ export default function EngineeringPage() {
       <h1 className="font-medium text-2xl mt-72">
         Check out my <u>coding and engineering </u> work
       </h1>
-      <div className="grid grid-cols-2  grid-rows-1">
-        <div className="flex flex-row m-auto">
-          <img className="m-8" src="static/vectors/guide-vector.svg"></img>
-          <div className="">
-            <div className="flex flex-row mt-10">
-              <span className="text-8xl font-bold ">Inertia</span>
-              <img
-                className="ml-5 w-32 flex mt-auto"
-                src="static/vectors/title-block.svg"
-              ></img>
-            </div>
-            <h1 className="text-3xl font-normal mt-4">
-              Play as an astronaut and solve 2D puzzles by{" "}
-              <span className="text-pink-400">
-                controlling the gravity of objects.
-              </span>
-            </h1>
-            <ul className="ml-12 list-disc text-lg mt-4">
-              <li>Developed for a 7-day game jam using C# and Unity</li>
-              <li>
-                Utilized an event-driven system and object-oriented programming
-                (OOP) to decouple logic between input, player-character, the
-                gravity selection process, and interactive objects increasing
-                maintainability
-              </li>
-              <li>
-                Polished game feel with stunning user-interaction FX, like
-                gravity selection, object outlining, and proximity-based object
-                highlighting, using shader graphs
-              </li>
-              <li>
-                Integrated matrix transforms, animations, sounds, and particle
-                systems of multiple sprites using structural design patterns
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
