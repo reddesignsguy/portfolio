@@ -1,20 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import NavBar from "./components/NavBar";
-import Carousel from "./components/Carousel";
 import Link from "next/link";
 
-const slides = [
-  "https://i.ibb.co/ncrXc2V/1.png",
-  "https://i.ibb.co/B3s7v4h/2.png",
-  "https://i.ibb.co/XXR8kzF/3.png",
-  "https://i.ibb.co/yg7BSdM/4.png",
-];
-
-export default function EngineeringPage() {
+export default function Home() {
   return (
-    <div className="font-[family-name:var(--font-geist-sans)] max-w-8xl m-auto">
+    <div className="font-[family-name:var(--font-geist-sans)] max-w-8xl m-auto scroll-smooth">
       <div className="bg-gradient-to-r from-indigo-500"></div>
       <NavBar />
       <div className="max-w-7xl mx-auto flex items-center justify-between min-h-screen  ">
@@ -122,7 +113,10 @@ export default function EngineeringPage() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 px-8">
+      <div
+        id="work-section"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 px-8"
+      >
         <Link href="/inertia">
           <img
             src="/static/projects/inertia/Thumbnail.png"
