@@ -26,8 +26,8 @@ export function ProjectLayout(info: ProjectInfo) {
           <span className="text-pink-400">{info.descriptionHiglighted}</span>
         </h1>
         <ul className="ml-12 list-disc text-lg mt-4">
-          {info.highlights.map((highlight: string) => (
-            <li>{highlight}</li>
+          {info.highlights.map((highlight: string, index: number) => (
+            <li key={index}>{highlight}</li>
           ))}
         </ul>
       </div>
