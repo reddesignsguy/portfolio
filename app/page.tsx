@@ -26,7 +26,7 @@ export default function Home() {
         <FireEyes />
         <h1
           style={{ textShadow: "2px 2px 4px rgba(53, 53, 53, 0.5)" }}
-          className="text-4xl font-bold text-center items-center leading-none tracking-tight  md:text-5xl lg:text-6xl dark:text-white "
+          className="font-bold text-center items-center leading-none tracking-tight  md:text-4xl lg:text-5xl dark:text-white "
         >
           Hi, I&apos;m Albany! I&apos;m a game developer and software engineer
           based in the Bay Area.
@@ -45,23 +45,23 @@ export default function Home() {
           </p> */}
         </div>
       </div>
-      <div className="max-w-7xl mx-auto grid grid-cols-2  grid-rows-1 gap-4 text-2xl min-h-[70vh] ">
-        <div className="p-4 text-white text-center">
-          <h2 className="font-bold text-4xl">Game Dev:</h2>
+      <div className="max-w-7xl mx-auto grid grid-cols-2  grid-rows-1 gap-4 text-xl min-h-[80vh] ">
+        <div className="p-4 text-white text-center flex flex-col justify-center">
+          <h2 className="font-bold text-3xl">Game Dev:</h2>
           <div className="m-5">
             <h4>C#, C++, Luau </h4>
             <div className=" flex justify-center gap-4 w-full max-w-md mx-auto my-3">
               <img
                 src="/static/images/languages/CSharp.svg"
-                className="w-24 h-24"
+                className="w-8 h-8 md:w-14 md:h-14 lg:w-20 lg:h-20"
               ></img>
               <img
                 src="/static/images/languages/CPlusPlus.svg"
-                className="w-24 h-24"
+                className="w-8 h-8 md:w-14 md:h-14 lg:w-20 lg:h-20"
               ></img>
               <img
                 src="/static/images/languages/luau.png"
-                className="w-24 h-24"
+                className="w-8 h-8 md:w-14 md:h-14 lg:w-20 lg:h-20"
               ></img>
             </div>
           </div>
@@ -70,35 +70,35 @@ export default function Home() {
             <div className="flex justify-center gap-4 w-full max-w-md mx-auto my-3">
               <img
                 src="/static/images/languages/unity.png"
-                className="w-24 h-24 object-cover"
+                className="w-8 h-8 md:w-14 md:h-14 lg:w-20 lg:h-20 object-cover"
               ></img>
               <img
                 src="/static/images/languages/roblox.png"
-                className="w-24 h-24 object-cover"
+                className="w-8 h-8 md:w-14 md:h-14 lg:w-20 lg:h-20 object-cover"
               ></img>
             </div>
           </div>
         </div>
-        <div className="p-4 text-white text-center">
-          <h2 className="font-bold text-4xl">Web Dev:</h2>
+        <div className="p-4 text-white text-center flex flex-col justify-center">
+          <h2 className="font-bold text-3xl">Web Dev:</h2>
           <div className="m-5">
             <h4> Java, Python, Typescript, Javascript </h4>
             <div className=" flex justify-center gap-4 w-full max-w-md mx-auto my-3">
               <img
                 src="/static/images/languages/Java.svg"
-                className="w-24 h-24"
+                className="w-8 h-8 md:w-14 md:h-14 lg:w-20 lg:h-20"
               ></img>
               <img
                 src="/static/images/languages/Python.svg"
-                className="w-24 h-24"
+                className="w-8 h-8 md:w-14 md:h-14 lg:w-20 lg:h-20"
               ></img>
               <img
                 src="/static/images/languages/TypeScript.svg"
-                className="w-24 h-24"
+                className="w-8 h-8 md:w-14 md:h-14 lg:w-20 lg:h-20"
               ></img>
               <img
                 src="/static/images/languages/JS.svg"
-                className="w-24 h-24"
+                className="w-8 h-8 md:w-14 md:h-14 lg:w-20 lg:h-20"
               ></img>
             </div>
           </div>
@@ -107,23 +107,23 @@ export default function Home() {
             <div className="flex justify-center gap-4 w-full max-w-md mx-auto my-3">
               <img
                 src="/static/images/languages/react.png"
-                className="w-24 h-24 object-cover"
+                className="w-8 h-8 md:w-14 md:h-14 lg:w-20 lg:h-20 object-cover"
               ></img>
               <img
                 src="/static/images/languages/expressjs.png"
-                className="w-24 h-24 object-cover"
+                className="w-8 h-8 md:w-14 md:h-14 lg:w-20 lg:h-20 object-cover"
               ></img>
               <img
                 src="/static/images/languages/nodejs.webp"
-                className="w-24 h-24 object-cover"
+                className="w-8 h-8 md:w-14 md:h-14 lg:w-20 lg:h-20 object-cover"
               ></img>
               <img
                 src="/static/images/languages/postgresql.png"
-                className="w-24 h-24 object-cover"
+                className="w-8 h-8 md:w-14 md:h-14 lg:w-20 lg:h-20 object-cover"
               ></img>
               <img
                 src="/static/images/languages/mysql.png"
-                className="w-24 h-24 object-cover"
+                className="w-8 h-8 md:w-14 md:h-14 lg:w-20 lg:h-20 object-cover"
               ></img>
             </div>
           </div>
