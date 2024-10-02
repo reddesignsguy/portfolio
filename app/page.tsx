@@ -122,8 +122,14 @@ export default function EngineeringPage() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 px-8">
         <Link href="/inertia">
+          <img
+            src="/static/projects/inertia/Thumbnail.png"
+            className="w-full h-full object-cover"
+          />
+        </Link>
+        <Link href="/abyss">
           <img
             src="/static/projects/abyss/Thumbnail.png"
             className="w-full h-full object-cover"
@@ -131,19 +137,13 @@ export default function EngineeringPage() {
         </Link>
         <Link href="/inertia">
           <img
-            src="/static/projects/inertia/Thumbnail.png"
+            src="/static/projects/seapirates/Thumbnail.png"
             className="w-full h-full object-cover"
           />
         </Link>
         <Link href="/inertia">
           <img
-            src="/static/projects/inertia/Thumbnail.png"
-            className="w-full h-full object-cover"
-          />
-        </Link>
-        <Link href="/inertia">
-          <img
-            src="/static/projects/inertia/Thumbnail.png"
+            src="/static/projects/wingsuit/Thumbnail.png"
             className="w-full h-full object-cover"
           />
         </Link>
