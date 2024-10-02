@@ -18,7 +18,7 @@ export default function Inertia() {
           "Particle color and size are dynamically calculated and rendered using GLSL Shaders",
           "All models were created in Maya",
         ]}
-        youtube={"https://www.youtube.com/embed/3011404"}
+        youtube={"https://www.youtube.com/embed/NHVrczwoOJw"}
         itch={"https://vexeo.itch.io/the-abyss"}
         itchWidget={
           "https://itch.io/embed/3011404?border_width=0&bg_color=111111&fg_color=ffffff&link_color=2ce8f4&border_color=111111"

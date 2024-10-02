@@ -15,17 +15,17 @@ export function ProjectLayout(info: ProjectInfo) {
       <div className="grid grid-cols-2 grid-rows-1 gap-20 mx-8">
         <div className="">
           <div className="flex flex-row mt-10">
-            <span className="text-8xl font-bold">{info.title}</span>
+            <span className="text-7xl font-bold">{info.title}</span>
             <img
               className="ml-5 w-32 flex mt-auto mr-10"
               src="static/vectors/title-block.svg"
             ></img>
           </div>
-          <h1 className="text-3xl font-normal mt-4">
+          <h1 className="text-2xl font-normal mt-4">
             {info.description}{" "}
             <span className="text-pink-400">{info.descriptionHiglighted}</span>
           </h1>
-          <ul className="ml-12 list-disc text-lg mt-4">
+          <ul className="ml-12 list-disc text-md mt-4">
             {info.highlights.map((highlight: string, index: number) => (
               <li key={index}>{highlight}</li>
             ))}
@@ -48,7 +48,7 @@ export function ProjectLayout(info: ProjectInfo) {
             width="550"
             height="165"
           >
-            <a href={info.itch}>INERTIA by vexeo</a>
+            <a href={info.itch}></a>
           </iframe>
         </div>
       </div>
