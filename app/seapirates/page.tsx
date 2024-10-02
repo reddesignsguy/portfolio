@@ -7,7 +7,7 @@ export default function SeaPiratesPage() {
     <div className="font-[family-name:var(--font-geist-sans)] max-w-7xl mx-auto mt-56">
       <NavBar />
       <ProjectLayout
-        title={"Sea Pirates"}
+        title={"SeaPirates"}
         description={"Shoot the ships and don't let them touch you. "}
         descriptionHiglighted={"- Captain Blackbeard"}
         highlights={[

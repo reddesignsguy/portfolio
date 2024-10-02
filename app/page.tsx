@@ -3,7 +3,6 @@
 import Rive, { useRive } from "@rive-app/react-canvas-lite";
 import NavBar from "./components/NavBar";
 import Link from "next/link";
-import { useState } from "react";
 
 function FireEyes() {
   const { RiveComponent } = useRive({
