@@ -129,13 +129,13 @@ export default function Home() {
             className="w-full h-full object-cover"
           />
         </Link>
-        <Link href="/inertia">
+        <Link href="/seapirates">
           <img
             src="/static/projects/seapirates/Thumbnail.png"
             className="w-full h-full object-cover"
           />
         </Link>
-        <Link href="/inertia">
+        <Link href="/wingsuit">
           <img
             src="/static/projects/wingsuit/Thumbnail.png"
             className="w-full h-full object-cover"
