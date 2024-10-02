@@ -1,9 +1,8 @@
-import Image from "next/image";
 import NavBar from "../components/NavBar";
-import Carousel from "../components/Carousel";
-import { ProjectInfo, ProjectLayout } from "../components/ProjectLayout";
 
-export default function SeaPiratesPage(info: ProjectInfo) {
+import { ProjectLayout } from "../components/ProjectLayout";
+
+export default function SeaPiratesPage() {
   return (
     <div className="font-[family-name:var(--font-geist-sans)] max-w-7xl mx-auto mt-56">
       <NavBar />

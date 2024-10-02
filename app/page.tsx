@@ -12,8 +12,8 @@ export default function Home() {
         <img className="w-80" src="/color_brain.png" />
         <div className="ml-10 ">
           <h1 className="text-4xl font-bold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-            Hi, I'm Albany! I'm a game developer and software engineer based in
-            the Bay Area.
+            Hi, I&apos;m Albany! I&apos;m a game developer and software engineer
+            based in the Bay Area.
           </h1>
           {/* <p className=" max-w-2xl leading-5 mt-6 mb-6 text-lg font-normal  lg:text-xl dark:text-#d0d0d0-400 whitespace text-left">
             Just as the simple law of gravity,{" "}
