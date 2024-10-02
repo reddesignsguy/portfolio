@@ -1,20 +1,37 @@
 "use client";
 
+import Rive, { useRive } from "@rive-app/react-canvas-lite";
 import NavBar from "./components/NavBar";
 import Link from "next/link";
+import { useState } from "react";
+
+function FireEyes() {
+  const { RiveComponent } = useRive({
+    src: "/static/vectors/Eyes.riv",
+    stateMachines: ["LoopAndEnter"],
+    autoplay: true,
+  });
+
+  return <RiveComponent className="h-[165px] flex " />;
+}
 
 export default function Home() {
   return (
-    <div className="font-[family-name:var(--font-geist-sans)] max-w-8xl m-auto scroll-smooth">
-      <div className="bg-gradient-to-r from-indigo-500"></div>
+    <div className="font-[family-name:var(--font-geist-sans)] max-w-8xl m-auto scroll-smooth bg-[url('/static/images/Background.png')] bg-cover bg-center h-screen">
+      {/* <div className="absolute">
+        <Rive className="absolute" src={"/static/vectors/Eyes.riv"} />
+      </div> */}
       <NavBar />
-      <div className="max-w-7xl mx-auto flex items-center justify-between min-h-screen  ">
-        <img className="w-80" src="/color_brain.png" />
-        <div className="ml-10 ">
-          <h1 className="text-4xl font-bold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-            Hi, I&apos;m Albany! I&apos;m a game developer and software engineer
-            based in the Bay Area.
-          </h1>
+      <div className="max-w-7xl mx-auto min-h-screen max-h-screen flex flex-col justify-center">
+        <FireEyes />
+        <h1
+          style={{ textShadow: "2px 2px 4px rgba(53, 53, 53, 0.5)" }}
+          className="text-4xl font-bold text-center items-center leading-none tracking-tight  md:text-5xl lg:text-6xl dark:text-white "
+        >
+          Hi, I&apos;m Albany! I&apos;m a game developer and software engineer
+          based in the Bay Area.
+        </h1>
+        <div className="">
           {/* <p className=" max-w-2xl leading-5 mt-6 mb-6 text-lg font-normal  lg:text-xl dark:text-#d0d0d0-400 whitespace text-left">
             Just as the simple law of gravity,{" "}
             <span className="text-pink-400">F = mg</span>, shaped <br />{" "}
