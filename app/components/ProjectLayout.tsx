@@ -5,8 +5,8 @@ export interface ProjectInfo {
   descriptionHiglighted: string;
   highlights: string[];
   youtube: string;
-  itch: string;
-  itchWidget: string;
+  itch?: string;
+  itchWidget?: string;
 }
 
 export function ProjectLayout(info: ProjectInfo) {
@@ -41,15 +41,17 @@ export function ProjectLayout(info: ProjectInfo) {
             />
           </div>
 
-          <iframe
-            className="rounded-lg mt-10 w-full shadow-[4px_4px_0px_rgba(255,102,203,1),_-6px_-6px_0px_rgba(64,195,255,1)] p-6"
-            frameBorder="0"
-            src={info.itchWidget}
-            width="550"
-            height="165"
-          >
-            <a href={info.itch}></a>
-          </iframe>
+          {info.itchWidget && info.itch && (
+            <iframe
+              className="rounded-lg mt-10 w-full shadow-[4px_4px_0px_rgba(255,102,203,1),_-6px_-6px_0px_rgba(64,195,255,1)] p-6"
+              frameBorder="0"
+              src={info.itchWidget}
+              width="550"
+              height="165"
+            >
+              <a href={info.itch}></a>
+            </iframe>
+          )}
         </div>
       </div>
     </>

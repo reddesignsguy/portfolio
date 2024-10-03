@@ -133,31 +133,74 @@ export default function Home() {
         id="work-section"
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 px-8"
       >
-        <Link href="/inertia">
-          <img
-            src="/static/projects/inertia/Thumbnail.png"
-            className="w-full h-full object-cover"
-          />
-        </Link>
-        <Link href="/abyss">
-          <img
-            src="/static/projects/abyss/Thumbnail.png"
-            className="w-full h-full object-cover"
-          />
-        </Link>
-        <Link href="/seapirates">
-          <img
-            src="/static/projects/seapirates/Thumbnail.png"
-            className="w-full h-full object-cover"
-          />
-        </Link>
-        <Link href="/wingsuit">
-          <img
-            src="/static/projects/wingsuit/Thumbnail.png"
-            className="w-full h-full object-cover"
-          />
-        </Link>
+        <GalleryItem
+          href="/inertia"
+          img="/static/projects/inertia/Thumbnail.png"
+          isGame={true}
+          hoverTitle="Inertia"
+          hoverDescription="Made with C# and Unity" // Replace with the actual technology
+        />
+        <GalleryItem
+          href="/abyss"
+          img="/static/projects/abyss/Thumbnail.png"
+          isGame={true}
+          hoverTitle="Abyss"
+          hoverDescription="Made with C++, GLSL, OpenFrameworks (OpenGL)" // Replace with the actual technology
+        />
+        <GalleryItem
+          href="/seapirates"
+          img="/static/projects/seapirates/Thumbnail.png"
+          isGame={true}
+          hoverTitle="SeaPirates"
+          hoverDescription="Made with C++ and OpenFrameworks"
+        />
+
+        <GalleryItem
+          href={"/wingsuit"}
+          img={"/static/projects/wingsuit/Thumbnail.png"}
+          isGame={true}
+          hoverTitle={"Wingsuit World"}
+          hoverDescription={"Made with Lua and ROBLOX Studio"}
+        />
+        <GalleryItem
+          href={"/attendease"}
+          img={"/static/projects/attendease/Thumbnail.png"}
+          isGame={true}
+          hoverTitle={"Attendease"}
+          hoverDescription={
+            "Made the front-end and live updates feature with React, FastAPI, and PostgresSQL"
+          }
+        />
       </div>
     </div>
+  );
+}
+
+interface GalleryItemProps {
+  href: string; // Link to the resource
+  img: string; // Image source URL
+  isGame: boolean; // Flag indicating if it is a game
+  hoverTitle: string; // Title to show on hover
+  hoverDescription: string; // Optional description to show on hover
+}
+
+function GalleryItem(props: GalleryItemProps) {
+  return (
+    <Link href={props.href} className="relative">
+      <img
+        src={props.img} // Use the img prop
+        className="w-full h-full object-cover"
+      />
+      {props.isGame && (
+        <div className="absolute top-2 right-2 z-1 bg-[rgba(255,102,203,1)] rounded-sm py-1 px-2">
+          <span className="font-extrabold">Game</span>
+        </div>
+      )}
+      <div className="opacity-0 absolute top-0 left-0 bg-[#606060db] hover:opacity-100 min-w-full min-h-full flex justify-center items-center flex-col text-center transition-opacity duration-300 ease-in-out">
+        <span className="font-bold text-2xl">{props.hoverTitle}</span>
+        {props.hoverDescription && <span>{props.hoverDescription}</span>}{" "}
+        {/* Optional description */}
+      </div>
+    </Link>
   );
 }

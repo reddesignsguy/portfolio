@@ -29,13 +29,19 @@ export default function NavBar() {
         >
           <ul className="flex flex-col p-4 md:p-0 mt-4 text-3xl font-bold border   md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
             <li>
-              <FaGithub />
+              <Link href="https://github.com/reddesignsguy">
+                <FaGithub />
+              </Link>
             </li>
             <li>
-              <FaLinkedinIn />
+              <Link href="https://www.linkedin.com/in/albanyp/">
+                <FaLinkedinIn />
+              </Link>
             </li>
             <li>
-              <HiOutlineMail />
+              <Link href="mailto:albanypatriawan@gmail.com">
+                <HiOutlineMail />
+              </Link>
             </li>
           </ul>
         </div>
