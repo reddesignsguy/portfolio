@@ -1,6 +1,6 @@
 "use client";
 
-import Rive, { useRive } from "@rive-app/react-canvas-lite";
+import { useRive } from "@rive-app/react-canvas-lite";
 import NavBar from "./components/NavBar";
 import Link from "next/link";
 
