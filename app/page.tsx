@@ -165,7 +165,7 @@ export default function Home() {
         <GalleryItem
           href={"/attendease"}
           img={"/static/projects/attendease/Thumbnail.png"}
-          isGame={true}
+          isGame={false}
           hoverTitle={"Attendease"}
           hoverDescription={
             "Made the front-end and live updates feature with React, FastAPI, and PostgresSQL"
@@ -189,13 +189,17 @@ function GalleryItem(props: GalleryItemProps) {
     <Link href={props.href} className="relative">
       <img
         src={props.img} // Use the img prop
-        className="w-full h-full object-cover"
+        className="aspect-video object-cover"
       />
-      {props.isGame && (
-        <div className="absolute top-2 right-2 z-1 bg-[rgba(255,102,203,1)] rounded-sm py-1 px-2">
-          <span className="font-extrabold">Game</span>
-        </div>
-      )}
+
+      <div
+        className={`absolute top-2 right-2 z-1 ${
+          props.isGame ? "bg-[rgba(255,102,203,1)]" : "bg-[rgba(64,195,255,1)]"
+        } rounded-sm py-1 px-2`}
+      >
+        <span className="font-extrabold">{props.isGame ? "Game" : "App"}</span>
+      </div>
+
       <div className="opacity-0 absolute top-0 left-0 bg-[#606060db] hover:opacity-100 min-w-full min-h-full flex justify-center items-center flex-col text-center transition-opacity duration-300 ease-in-out">
         <span className="font-bold text-2xl">{props.hoverTitle}</span>
         {props.hoverDescription && <span>{props.hoverDescription}</span>}{" "}
