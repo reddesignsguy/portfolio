@@ -25,7 +25,7 @@ export default function Home() {
         <FireEyes />
         <h1
           style={{ textShadow: "2px 2px 4px rgba(53, 53, 53, 0.5)" }}
-          className="font-bold text-center items-center leading-none tracking-tight  md:text-4xl lg:text-5xl dark:text-white "
+          className="font-bold text-center items-center leading-none tracking-tight  md:text-4xl lg:text-5xl text-white "
         >
           Hi, I&apos;m Albany! I&apos;m a game developer and software engineer
           based in the Bay Area.
@@ -197,7 +197,9 @@ function GalleryItem(props: GalleryItemProps) {
           props.isGame ? "bg-[rgba(255,102,203,1)]" : "bg-[rgba(64,195,255,1)]"
         } rounded-sm py-1 px-2`}
       >
-        <span className="font-extrabold">{props.isGame ? "Game" : "App"}</span>
+        <span className="font-extrabold text-white">
+          {props.isGame ? "Game" : "App"}
+        </span>
       </div>
 
       <div className="opacity-0 absolute top-0 left-0 bg-[#606060db] hover:opacity-100 min-w-full min-h-full flex justify-center items-center flex-col text-center transition-opacity duration-300 ease-in-out">

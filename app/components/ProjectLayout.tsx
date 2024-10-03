@@ -12,7 +12,7 @@ export interface ProjectInfo {
 export function ProjectLayout(info: ProjectInfo) {
   return (
     <>
-      <div className="grid grid-cols-2 grid-rows-1 gap-20 mx-8">
+      <div className="grid grid-cols-2 grid-rows-1 gap-20 mx-8 text-white">
         <div className="">
           <div className="flex flex-row mt-10">
             <span className="text-7xl font-bold">{info.title}</span>
