@@ -5,6 +5,50 @@ import NavBar from "./components/NavBar";
 import Link from "next/link";
 import { useState } from "react";
 
+export enum Filter {
+  Game,
+  App,
+}
+
+const galleryItemsData: GalleryItemProps[] = [
+  {
+    href: "/inertia",
+    img: "/static/projects/inertia/Thumbnail.png",
+    type: Filter.Game,
+    hoverTitle: "Inertia",
+    hoverDescription: "Made with C# and Unity",
+  },
+  {
+    href: "/abyss",
+    img: "/static/projects/abyss/Thumbnail.png",
+    type: Filter.Game,
+    hoverTitle: "Abyss",
+    hoverDescription: "Made with C++, GLSL, OpenFrameworks (OpenGL)",
+  },
+  {
+    href: "/seapirates",
+    img: "/static/projects/seapirates/Thumbnail.png",
+    type: Filter.Game,
+    hoverTitle: "SeaPirates",
+    hoverDescription: "Made with C++ and OpenFrameworks",
+  },
+  {
+    href: "/wingsuit",
+    img: "/static/projects/wingsuit/Thumbnail.png",
+    type: Filter.Game,
+    hoverTitle: "Wingsuit World",
+    hoverDescription: "Made with Lua and ROBLOX Studio",
+  },
+  {
+    href: "/attendease",
+    img: "/static/projects/attendease/Thumbnail.png",
+    type: Filter.App,
+    hoverTitle: "Attendease",
+    hoverDescription:
+      "Made the front-end and live updates feature with React, FastAPI, and PostgresSQL",
+  },
+];
+
 export default function Home() {
   return (
     <div className="font-[family-name:var(--font-geist-sans)] max-w-8xl m-auto scroll-smooth bg-[url('/static/images/Background.png')] bg-cover bg-center h-screen">
@@ -122,28 +166,82 @@ export default function Home() {
 }
 
 function Gallery() {
-  const [filterState, setFilters] = useState<TFilterState>({
-    filters: [Filter.Game, Filter.App],
-  });
+  const [filterState, setFilters] = useState<TFilterState[]>([
+    { [0]: Filter.Game, [1]: true },
+    { [0]: Filter.App, [1]: true },
+  ]);
+
+  // Handler for when the checkbox changes
+  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const checked = event.target.checked;
+    var id: string = event.target.id;
+    handleClick(checked, id);
+  };
+
+  // Function to handle the checked state
+  const handleClick = (checked: boolean, id: string) => {
+    console.log(checked, id);
+    const newFilterStates: TFilterState[] = filterState;
+    newFilterStates[parseInt(id)][1] = checked;
+    setFilters(newFilterStates);
+  };
 
   return (
-    <div
-      id="work-section"
-      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 px-8"
-    >
-      {galleryItemsData
-        .filter((item) => filterState.filters.includes(item.type))
-        .map((item, index) => (
-          <GalleryItem
-            key={index}
-            href={item.href}
-            img={item.img}
-            type={item.type}
-            hoverTitle={item.hoverTitle}
-            hoverDescription={item.hoverDescription}
+    <>
+      <div
+        className={`transition-all duration-500 overflow-hidden flex space-x-2 max-w-full mb-4 justify-center`}
+      >
+        <div className="flex items-center space-x-2 p-1 rounded-sm text-white font-bold">
+          <input
+            type="checkbox"
+            id="0"
+            className="appearance-none w-5 h-5 border-[1.5px] border-[rgba(255,102,203,1)] rounded-sm checked:bg-[rgb(144,32,97)] text-[0.7rem] checked:after:content-['✔'] checked:after:text-white checked:after:flex checked:after:items-center checked:after:justify-center"
+            onChange={handleCheckboxChange}
           />
-        ))}
-    </div>
+          <label
+            htmlFor="0"
+            className="bg-[rgba(255,102,203,1)] px-2 py-1 rounded-sm"
+          >
+            Game
+          </label>
+        </div>
+        <div className="flex items-center space-x-2 p-1 rounded-sm text-white font-bold ml-4">
+          <input
+            type="checkbox"
+            id="1"
+            className="appearance-none w-5 h-5 border-[1.5px] border-[rgba(64,195,255,1)] rounded-sm checked:bg-[rgb(32,97,144)]  text-[0.7rem] checked:after:content-['✔'] checked:after:text-white checked:after:flex checked:after:items-center checked:after:justify-center"
+            onChange={handleCheckboxChange}
+          />
+          <label
+            htmlFor="1"
+            className="bg-[rgba(64,195,255,1)] px-2 py-1 rounded-sm "
+          >
+            App
+          </label>
+        </div>
+      </div>
+      <div
+        id="work-section"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 px-8"
+      >
+        {galleryItemsData
+          .filter((item) => {
+            return filterState.some(
+              (state) => state[0] === item.type && state[1] === true
+            );
+          })
+          .map((item, index) => (
+            <GalleryItem
+              key={index}
+              href={item.href}
+              img={item.img}
+              type={item.type}
+              hoverTitle={item.hoverTitle}
+              hoverDescription={item.hoverDescription}
+            />
+          ))}
+      </div>
+    </>
   );
 }
 
@@ -156,52 +254,9 @@ interface GalleryItemProps {
 }
 
 export interface TFilterState {
-  filters: Filter[];
+  [0]: Filter;
+  [1]: boolean;
 }
-
-export enum Filter {
-  Game,
-  App,
-}
-
-const galleryItemsData: GalleryItemProps[] = [
-  {
-    href: "/inertia",
-    img: "/static/projects/inertia/Thumbnail.png",
-    type: Filter.Game,
-    hoverTitle: "Inertia",
-    hoverDescription: "Made with C# and Unity",
-  },
-  {
-    href: "/abyss",
-    img: "/static/projects/abyss/Thumbnail.png",
-    type: Filter.Game,
-    hoverTitle: "Abyss",
-    hoverDescription: "Made with C++, GLSL, OpenFrameworks (OpenGL)",
-  },
-  {
-    href: "/seapirates",
-    img: "/static/projects/seapirates/Thumbnail.png",
-    type: Filter.Game,
-    hoverTitle: "SeaPirates",
-    hoverDescription: "Made with C++ and OpenFrameworks",
-  },
-  {
-    href: "/wingsuit",
-    img: "/static/projects/wingsuit/Thumbnail.png",
-    type: Filter.Game,
-    hoverTitle: "Wingsuit World",
-    hoverDescription: "Made with Lua and ROBLOX Studio",
-  },
-  {
-    href: "/attendease",
-    img: "/static/projects/attendease/Thumbnail.png",
-    type: Filter.App,
-    hoverTitle: "Attendease",
-    hoverDescription:
-      "Made the front-end and live updates feature with React, FastAPI, and PostgresSQL",
-  },
-];
 
 function GalleryItem(props: GalleryItemProps) {
   return (
