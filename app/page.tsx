@@ -5,7 +5,7 @@ import NavBar from "./components/NavBar";
 import Link from "next/link";
 import { useState } from "react";
 
-export enum Filter {
+enum Filter {
   Game,
   App,
 }
