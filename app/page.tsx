@@ -202,6 +202,7 @@ function Gallery() {
             id="0"
             className="appearance-none w-5 h-5 border-[1.5px] border-[rgba(255,102,203,1)] rounded-sm checked:bg-[rgb(144,32,97)] text-[0.7rem] checked:after:content-['✔'] checked:after:text-white checked:after:flex checked:after:items-center checked:after:justify-center"
             onChange={handleCheckboxChange}
+            checked={filterState[0][1]} // Bind the checked state
           />
           <label
             htmlFor="0"
@@ -216,6 +217,7 @@ function Gallery() {
             id="1"
             className="appearance-none w-5 h-5 border-[1.5px] border-[rgba(64,195,255,1)] rounded-sm checked:bg-[rgb(32,97,144)]  text-[0.7rem] checked:after:content-['✔'] checked:after:text-white checked:after:flex checked:after:items-center checked:after:justify-center"
             onChange={handleCheckboxChange}
+            checked={filterState[1][1]} // Bind the checked state
           />
           <label
             htmlFor="1"
