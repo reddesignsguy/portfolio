@@ -296,7 +296,7 @@ function GalleryItem(props: GalleryItemProps) {
 
 function FireEyes() {
   const { RiveComponent } = useRive({
-    src: "/static/vectors/Eyes.riv",
+    src: "/static/vectors/Eyes2.riv",
     stateMachines: ["LoopAndEnter"],
     autoplay: true,
   });
