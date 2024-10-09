@@ -174,7 +174,7 @@ function Gallery() {
   // Handler for when the checkbox changes
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const checked = event.target.checked;
-    var id: string = event.target.id;
+    const id: string = event.target.id;
     handleClick(checked, id);
   };
 
