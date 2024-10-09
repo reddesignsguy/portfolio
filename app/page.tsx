@@ -181,8 +181,13 @@ function Gallery() {
   // Function to handle the checked state
   const handleClick = (checked: boolean, id: string) => {
     console.log(checked, id);
-    const newFilterStates: TFilterState[] = filterState;
-    newFilterStates[parseInt(id)][1] = checked;
+    const index = parseInt(id);
+    const newFilterStates = filterState.map((state, idx) => {
+      if (idx === index) {
+        return { ...state, [1]: checked }; // Update only the clicked checkbox
+      }
+      return state; // Return the current state unchanged
+    });
     setFilters(newFilterStates);
   };
 
