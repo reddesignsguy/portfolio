@@ -6,15 +6,8 @@ import Link from "next/link";
 import { useState } from "react";
 
 export default function Home() {
-  const [filterState, setFilters] = useState<TFilterState>({
-    filters: [Filter.Game, Filter.App],
-  });
-
   return (
     <div className="font-[family-name:var(--font-geist-sans)] max-w-8xl m-auto scroll-smooth bg-[url('/static/images/Background.png')] bg-cover bg-center h-screen">
-      {/* <div className="absolute">
-        <Rive className="absolute" src={"/static/vectors/Eyes.riv"} />
-      </div> */}
       <NavBar />
       <div className="max-w-7xl mx-auto min-h-screen max-h-screen flex flex-col justify-center">
         <FireEyes />
@@ -123,12 +116,24 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Gallery />
+    </div>
+  );
+}
 
-      <div
-        id="work-section"
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 px-8"
-      >
-        {galleryItemsData.map((item, index) => (
+function Gallery() {
+  const [filterState, setFilters] = useState<TFilterState>({
+    filters: [Filter.Game, Filter.App],
+  });
+
+  return (
+    <div
+      id="work-section"
+      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 px-8"
+    >
+      {galleryItemsData
+        .filter((item) => filterState.filters.includes(item.type))
+        .map((item, index) => (
           <GalleryItem
             key={index}
             href={item.href}
@@ -138,7 +143,6 @@ export default function Home() {
             hoverDescription={item.hoverDescription}
           />
         ))}
-      </div>
     </div>
   );
 }
