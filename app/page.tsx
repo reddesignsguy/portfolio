@@ -3,18 +3,13 @@
 import { useRive } from "@rive-app/react-canvas-lite";
 import NavBar from "./components/NavBar";
 import Link from "next/link";
-
-function FireEyes() {
-  const { RiveComponent } = useRive({
-    src: "/static/vectors/Eyes.riv",
-    stateMachines: ["LoopAndEnter"],
-    autoplay: true,
-  });
-
-  return <RiveComponent className="h-[165px] flex " />;
-}
+import { useState } from "react";
 
 export default function Home() {
+  const [filterState, setFilters] = useState<TFilterState>({
+    filters: [Filter.Game, Filter.App],
+  });
+
   return (
     <div className="font-[family-name:var(--font-geist-sans)] max-w-8xl m-auto scroll-smooth bg-[url('/static/images/Background.png')] bg-cover bg-center h-screen">
       {/* <div className="absolute">
@@ -133,44 +128,16 @@ export default function Home() {
         id="work-section"
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 px-8"
       >
-        <GalleryItem
-          href="/inertia"
-          img="/static/projects/inertia/Thumbnail.png"
-          isGame={true}
-          hoverTitle="Inertia"
-          hoverDescription="Made with C# and Unity" // Replace with the actual technology
-        />
-        <GalleryItem
-          href="/abyss"
-          img="/static/projects/abyss/Thumbnail.png"
-          isGame={true}
-          hoverTitle="Abyss"
-          hoverDescription="Made with C++, GLSL, OpenFrameworks (OpenGL)" // Replace with the actual technology
-        />
-        <GalleryItem
-          href="/seapirates"
-          img="/static/projects/seapirates/Thumbnail.png"
-          isGame={true}
-          hoverTitle="SeaPirates"
-          hoverDescription="Made with C++ and OpenFrameworks"
-        />
-
-        <GalleryItem
-          href={"/wingsuit"}
-          img={"/static/projects/wingsuit/Thumbnail.png"}
-          isGame={true}
-          hoverTitle={"Wingsuit World"}
-          hoverDescription={"Made with Lua and ROBLOX Studio"}
-        />
-        <GalleryItem
-          href={"/attendease"}
-          img={"/static/projects/attendease/Thumbnail.png"}
-          isGame={false}
-          hoverTitle={"Attendease"}
-          hoverDescription={
-            "Made the front-end and live updates feature with React, FastAPI, and PostgresSQL"
-          }
-        />
+        {galleryItemsData.map((item, index) => (
+          <GalleryItem
+            key={index}
+            href={item.href}
+            img={item.img}
+            type={item.type}
+            hoverTitle={item.hoverTitle}
+            hoverDescription={item.hoverDescription}
+          />
+        ))}
       </div>
     </div>
   );
@@ -179,10 +146,58 @@ export default function Home() {
 interface GalleryItemProps {
   href: string; // Link to the resource
   img: string; // Image source URL
-  isGame: boolean; // Flag indicating if it is a game
+  type: Filter; // Type of the item (Game or App)
   hoverTitle: string; // Title to show on hover
   hoverDescription: string; // Optional description to show on hover
 }
+
+export interface TFilterState {
+  filters: Filter[];
+}
+
+export enum Filter {
+  Game,
+  App,
+}
+
+const galleryItemsData: GalleryItemProps[] = [
+  {
+    href: "/inertia",
+    img: "/static/projects/inertia/Thumbnail.png",
+    type: Filter.Game,
+    hoverTitle: "Inertia",
+    hoverDescription: "Made with C# and Unity",
+  },
+  {
+    href: "/abyss",
+    img: "/static/projects/abyss/Thumbnail.png",
+    type: Filter.Game,
+    hoverTitle: "Abyss",
+    hoverDescription: "Made with C++, GLSL, OpenFrameworks (OpenGL)",
+  },
+  {
+    href: "/seapirates",
+    img: "/static/projects/seapirates/Thumbnail.png",
+    type: Filter.Game,
+    hoverTitle: "SeaPirates",
+    hoverDescription: "Made with C++ and OpenFrameworks",
+  },
+  {
+    href: "/wingsuit",
+    img: "/static/projects/wingsuit/Thumbnail.png",
+    type: Filter.Game,
+    hoverTitle: "Wingsuit World",
+    hoverDescription: "Made with Lua and ROBLOX Studio",
+  },
+  {
+    href: "/attendease",
+    img: "/static/projects/attendease/Thumbnail.png",
+    type: Filter.App,
+    hoverTitle: "Attendease",
+    hoverDescription:
+      "Made the front-end and live updates feature with React, FastAPI, and PostgresSQL",
+  },
+];
 
 function GalleryItem(props: GalleryItemProps) {
   return (
@@ -194,10 +209,14 @@ function GalleryItem(props: GalleryItemProps) {
 
       <div
         className={`absolute top-2 right-2 z-1 ${
-          props.isGame ? "bg-[rgba(255,102,203,1)]" : "bg-[rgba(64,195,255,1)]"
+          props.type == Filter.Game
+            ? "bg-[rgba(255,102,203,1)]"
+            : "bg-[rgba(64,195,255,1)]"
         } rounded-sm py-1 px-2`}
       >
-        <span className="font-extrabold ">{props.isGame ? "Game" : "App"}</span>
+        <span className="font-extrabold ">
+          {props.type == Filter.Game ? "Game" : "App"}
+        </span>
       </div>
 
       <div className="opacity-0 absolute top-0 left-0 bg-[#606060db] hover:opacity-100 min-w-full min-h-full flex justify-center items-center flex-col text-center transition-opacity duration-300 ease-in-out">
@@ -207,4 +226,14 @@ function GalleryItem(props: GalleryItemProps) {
       </div>
     </Link>
   );
+}
+
+function FireEyes() {
+  const { RiveComponent } = useRive({
+    src: "/static/vectors/Eyes.riv",
+    stateMachines: ["LoopAndEnter"],
+    autoplay: true,
+  });
+
+  return <RiveComponent className="h-[165px] flex " />;
 }
