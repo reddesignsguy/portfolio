@@ -63,7 +63,25 @@ export default function Home() {
           based in the Bay Area.
         </h1>
       </div>
-      <CustomTable headers={headers} data={data} />
+      <div className="my-36">
+        <div className="flex justify-center flex-col items-center gap-5">
+          {" "}
+          <h1 className="text-4xl font-bold mx-12">About Me</h1>
+          <p className="text-lg max-w-3xl text-center">
+            I obtained my B.S. in Software Engineering from{" "}
+            <b className="text-pink-400">SJSU</b>. I was a Software Developer
+            Engineer Intern at <b className="text-pink-400">Zillow</b> in 2023
+            and Python and Java tutor at{" "}
+            <b className="text-pink-400">Talentnook</b> from 2020-2023. I am
+            looking for software-related roles preferably in the games industry.
+          </p>
+          <p className="text-lg max-w-3xl text-center">
+            {" "}
+            Here's a chart of some of my skills:{" "}
+          </p>
+        </div>
+        <CustomTable headers={headers} data={data} />
+      </div>
       <Gallery />
     </div>
   );
@@ -97,6 +115,7 @@ function Gallery() {
 
   return (
     <>
+      <h1 className="text-4xl font-bold flex justify-center mb-2">Projects</h1>
       <div
         className={`transition-all duration-500 overflow-hidden flex space-x-2 max-w-full mb-4 justify-center`}
       >
@@ -221,7 +240,7 @@ const data: string[][] = [
 
 const CustomTable: React.FC<CustomTableProps> = ({ headers, data }) => {
   return (
-    <div className="max-w-3xl mx-auto">
+    <div className="max-w-3xl mx-auto my-3">
       <table className="table-auto border-collapse border-[rgb(134,51,51)] w-full">
         {/* Table Head */}
         <thead>
