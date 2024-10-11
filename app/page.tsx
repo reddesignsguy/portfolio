@@ -62,104 +62,8 @@ export default function Home() {
           Hi, I&apos;m Albany! I&apos;m a game developer and software engineer
           based in the Bay Area.
         </h1>
-        <div className="">
-          {/* <p className=" max-w-2xl leading-5 mt-6 mb-6 text-lg font-normal  lg:text-xl dark:text-#d0d0d0-400 whitespace text-left">
-            Just as the simple law of gravity,{" "}
-            <span className="text-pink-400">F = mg</span>, shaped <br />{" "}
-            galaxies, stars, planets, our solar system, Earth, and ultimately
-            life— <br /> enabling us to walk, talk, laugh, play sports, skydive,{" "}
-            <br /> and feel emotions like happiness, love, and longing— <br /> I
-            believe that
-            <span className="text-pink-400"> simple, robust systems </span>
-            are the foundation for building functionally complex and scalable
-            software.
-          </p> */}
-        </div>
       </div>
-      <div className="max-w-7xl mx-auto grid grid-cols-2  grid-rows-1 gap-4 text-xl min-h-[80vh] ">
-        <div className="p-4 text-white text-center flex flex-col justify-center">
-          <h2 className="font-bold text-3xl">Game Dev:</h2>
-          <div className="m-5">
-            <h4>C#, C++, Luau </h4>
-            <div className=" flex justify-center gap-4 w-full max-w-md mx-auto my-3">
-              <img
-                src="/static/images/languages/CSharp.svg"
-                className="w-8 h-8 md:w-14 md:h-14 lg:w-20 lg:h-20"
-              ></img>
-              <img
-                src="/static/images/languages/CPlusPlus.svg"
-                className="w-8 h-8 md:w-14 md:h-14 lg:w-20 lg:h-20"
-              ></img>
-              <img
-                src="/static/images/languages/luau.png"
-                className="w-8 h-8 md:w-14 md:h-14 lg:w-20 lg:h-20"
-              ></img>
-            </div>
-          </div>
-          <div className="mt-5 mb-10">
-            <h4>Unity, ROBLOX, OpenFrameworks </h4>
-            <div className="flex justify-center gap-4 w-full max-w-md mx-auto my-3">
-              <img
-                src="/static/images/languages/unity.png"
-                className="w-8 h-8 md:w-14 md:h-14 lg:w-20 lg:h-20 object-cover"
-              ></img>
-              <img
-                src="/static/images/languages/roblox.png"
-                className="w-8 h-8 md:w-14 md:h-14 lg:w-20 lg:h-20 object-cover"
-              ></img>
-            </div>
-          </div>
-        </div>
-        <div className="p-4 text-white text-center flex flex-col justify-center">
-          <h2 className="font-bold text-3xl">Web Dev:</h2>
-          <div className="m-5">
-            <h4> Java, Python, Typescript, Javascript </h4>
-            <div className=" flex justify-center gap-4 w-full max-w-md mx-auto my-3">
-              <img
-                src="/static/images/languages/Java.svg"
-                className="w-8 h-8 md:w-14 md:h-14 lg:w-20 lg:h-20"
-              ></img>
-              <img
-                src="/static/images/languages/Python.svg"
-                className="w-8 h-8 md:w-14 md:h-14 lg:w-20 lg:h-20"
-              ></img>
-              <img
-                src="/static/images/languages/TypeScript.svg"
-                className="w-8 h-8 md:w-14 md:h-14 lg:w-20 lg:h-20"
-              ></img>
-              <img
-                src="/static/images/languages/JS.svg"
-                className="w-8 h-8 md:w-14 md:h-14 lg:w-20 lg:h-20"
-              ></img>
-            </div>
-          </div>
-          <div className="mt-5 mb-10">
-            <h4> React, Express, Node, PostgreSQL, MySQL </h4>
-            <div className="flex justify-center gap-4 w-full max-w-md mx-auto my-3">
-              <img
-                src="/static/images/languages/react.png"
-                className="w-8 h-8 md:w-14 md:h-14 lg:w-20 lg:h-20 object-cover"
-              ></img>
-              <img
-                src="/static/images/languages/expressjs.png"
-                className="w-8 h-8 md:w-14 md:h-14 lg:w-20 lg:h-20 object-cover"
-              ></img>
-              <img
-                src="/static/images/languages/nodejs.webp"
-                className="w-8 h-8 md:w-14 md:h-14 lg:w-20 lg:h-20 object-cover"
-              ></img>
-              <img
-                src="/static/images/languages/postgresql.png"
-                className="w-8 h-8 md:w-14 md:h-14 lg:w-20 lg:h-20 object-cover"
-              ></img>
-              <img
-                src="/static/images/languages/mysql.png"
-                className="w-8 h-8 md:w-14 md:h-14 lg:w-20 lg:h-20 object-cover"
-              ></img>
-            </div>
-          </div>
-        </div>
-      </div>
+      <CustomTable headers={headers} data={data} />
       <Gallery />
     </div>
   );
@@ -303,3 +207,62 @@ function FireEyes() {
 
   return <RiveComponent className="h-[165px] flex " />;
 }
+
+type CustomTableProps = {
+  headers: string[]; // An array of strings for column headers
+  data: string[][]; // A 2D array of strings for table data (rows and cells)
+};
+
+const headers: string[] = ["Game Dev", "Web Dev"];
+const data: string[][] = [
+  ["C#, C++, Lua", "Java, Python, Typescript, Javascript"],
+  ["Unity, ROBLOX, OpenFrameworks", "React, Express, Node, PostgreSQL, MySQL"],
+];
+
+const CustomTable: React.FC<CustomTableProps> = ({ headers, data }) => {
+  return (
+    <div className="max-w-3xl mx-auto">
+      <table className="table-auto border-collapse border-[rgb(134,51,51)] w-full">
+        {/* Table Head */}
+        <thead>
+          <tr>
+            {headers.map((header, index) => (
+              <th
+                key={index}
+                className={` border-gray-300 px-4 py-2 text-[white]  text-2xl bg-[rgb(35,35,35)]
+               `}
+              >
+                <div className="flex justify-center items-center">
+                  <div
+                    className={`w-4 h-4  mr-2 rounded-md ${
+                      index == 0
+                        ? "bg-[rgba(255,102,203,1)]"
+                        : "bg-[rgba(64,195,255,1)]"
+                    }`}
+                  ></div>
+                  {header}
+                </div>
+              </th>
+            ))}
+          </tr>
+        </thead>
+
+        {/* Table Body */}
+        <tbody>
+          {data.map((row, rowIndex) => (
+            <tr key={rowIndex}>
+              {row.map((cell, cellIndex) => (
+                <td
+                  key={cellIndex}
+                  className={` border-#f0f0f0-300 px-4 py-2 bg-[rgb(28,28,28)]`}
+                >
+                  {cell}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
