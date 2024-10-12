@@ -81,6 +81,7 @@ export default function Home() {
           </p>
         </div>
         <CustomTable headers={headers} data={data} />
+        <ResumeDownload />
       </div>
       <Gallery />
     </div>
@@ -285,3 +286,41 @@ const CustomTable: React.FC<CustomTableProps> = ({ headers, data }) => {
     </div>
   );
 };
+
+const ResumeDownload = () => {
+  return (
+    <div className="flex flex-col items-center my-36">
+      <h2 className="text-4xl font-bold mb-4"> Resume </h2>
+      <iframe
+        src="/static/PortfolioResume.pdf" // Path to your PDF file in the public directory
+        width="500" // Adjust width as needed
+        height="700" // Adjust height as needed
+        className="border-2 border-gray-300"
+      >
+        This browser does not support PDFs. Please download the PDF to view it:
+        <a href="/static/AlbanyPatriawan_Resume_Games.pdf">Download PDF</a>
+      </iframe>
+    </div>
+  );
+};
+
+// chatgpt generated
+// const ResumeDownload = () => {
+//   return (
+//     <div className="text-center my-5">
+//       {/* Clickable image for resume download */}
+//       <a
+//         href="/static/AlbanyPatriawan_Resume_Games.pdf"
+//         download="AlbanyPatriawan_Resume_Games"
+//       >
+//         {/* Using standard HTML <img> element with Tailwind classes */}
+//         <img
+//           src="/resume-thumbnail.png" // Image of your resume (in public folder)
+//           alt="Clickable Resume Thumbnail"
+//           className="w-80 h-80 cursor-pointer border-2 border-gray-300"
+//         />
+//       </a>
+//       <p className="mt-2 text-gray-700">Don't forget to download my resume</p>
+//     </div>
+//   );
+// };
