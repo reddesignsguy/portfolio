@@ -82,7 +82,7 @@ export default function Home() {
           </p>
           <p className="text-lg max-w-3xl text-center">
             {" "}
-            Here&apos;s n overview of my skills:{" "}
+            Here&apos;s an overview of my skills:{" "}
           </p>
           <CustomTable headers={headers} data={data} />
         </div>
