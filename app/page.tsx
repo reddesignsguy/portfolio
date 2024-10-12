@@ -57,7 +57,7 @@ export default function Home() {
         <FireEyes />
         <h1
           style={{ textShadow: "2px 2px 4px rgba(53, 53, 53, 0.5)" }}
-          className="font-bold text-center items-center leading-none tracking-tight  md:text-4xl lg:text-5xl text-white "
+          className="font-bold text-center items-center leading-none tracking-tight  text-2xl md:text-4xl lg:text-5xl text-white "
         >
           Hi, I&apos;m Albany! I&apos;m a game developer and software engineer
           based in the Bay Area.
@@ -73,14 +73,15 @@ export default function Home() {
             Engineer Intern at <b className="text-pink-400">Zillow</b> in 2023
             and Python and Java tutor at{" "}
             <b className="text-pink-400">Talentnook</b> from 2020-2023. I am
-            looking for software-related roles preferably in the games industry.
+            looking for programming roles preferably in the games industry.
           </p>
           <p className="text-lg max-w-3xl text-center">
             {" "}
-            Here's a chart of some of my skills:{" "}
+            Here's an overview of my skills:{" "}
           </p>
+          <CustomTable headers={headers} data={data} />
         </div>
-        <CustomTable headers={headers} data={data} />
+
         <ResumeDownload />
       </div>
       <Gallery />
