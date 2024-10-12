@@ -199,16 +199,12 @@ function GalleryItem(props: GalleryItemProps) {
       />
 
       <div
-        className={`absolute top-2 right-2 z-1 ${
+        className={`absolute top-1 left-1 z-1 ${
           props.type == Filter.Game
             ? "bg-[rgba(255,102,203,1)]"
             : "bg-[rgba(64,195,255,1)]"
-        } rounded-sm py-1 px-2`}
-      >
-        <span className="font-extrabold ">
-          {props.type == Filter.Game ? "Game" : "App"}
-        </span>
-      </div>
+        } rounded-sm w-5 h-5`}
+      ></div>
 
       <div className="opacity-0 absolute top-0 left-0 bg-[#606060db] hover:opacity-100 min-w-full min-h-full flex justify-center items-center flex-col text-center transition-opacity duration-300 ease-in-out">
         <span className="font-bold text-2xl">{props.hoverTitle}</span>
@@ -304,24 +300,3 @@ const ResumeDownload = () => {
     </div>
   );
 };
-
-// chatgpt generated
-// const ResumeDownload = () => {
-//   return (
-//     <div className="text-center my-5">
-//       {/* Clickable image for resume download */}
-//       <a
-//         href="/static/AlbanyPatriawan_Resume_Games.pdf"
-//         download="AlbanyPatriawan_Resume_Games"
-//       >
-//         {/* Using standard HTML <img> element with Tailwind classes */}
-//         <img
-//           src="/resume-thumbnail.png" // Image of your resume (in public folder)
-//           alt="Clickable Resume Thumbnail"
-//           className="w-80 h-80 cursor-pointer border-2 border-gray-300"
-//         />
-//       </a>
-//       <p className="mt-2 text-gray-700">Don't forget to download my resume</p>
-//     </div>
-//   );
-// };
