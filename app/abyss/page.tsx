@@ -24,6 +24,9 @@ export default function Inertia() {
           "https://itch.io/embed/3011404?border_width=0&bg_color=111111&fg_color=ffffff&link_color=2ce8f4&border_color=111111"
         }
       />
+      <p className="text-white text-3xl">
+        Github: https://github.com/reddesignsguy/in-the-void-game-jam
+      </p>
     </div>
   );
 }

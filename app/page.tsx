@@ -17,6 +17,7 @@ const galleryItemsData: GalleryItemProps[] = [
     type: Filter.Game,
     hoverTitle: "Inertia",
     hoverDescription: "Made with C# and Unity",
+    tags: ["Game Jam", "Team of 2"],
   },
   {
     href: "/abyss",
@@ -24,6 +25,7 @@ const galleryItemsData: GalleryItemProps[] = [
     type: Filter.Game,
     hoverTitle: "Abyss",
     hoverDescription: "Made with C++, GLSL, OpenFrameworks (OpenGL)",
+    tags: ["Academic", "Team of 2"],
   },
   {
     href: "/seapirates",
@@ -31,6 +33,7 @@ const galleryItemsData: GalleryItemProps[] = [
     type: Filter.Game,
     hoverTitle: "SeaPirates",
     hoverDescription: "Made with C++ and OpenFrameworks",
+    tags: ["Academic"],
   },
   {
     href: "/wingsuit",
@@ -38,6 +41,7 @@ const galleryItemsData: GalleryItemProps[] = [
     type: Filter.Game,
     hoverTitle: "Wingsuit World",
     hoverDescription: "Made with Lua and ROBLOX Studio",
+    tags: ["Personal"],
   },
   {
     href: "/attendease",
@@ -46,6 +50,7 @@ const galleryItemsData: GalleryItemProps[] = [
     hoverTitle: "Attendease",
     hoverDescription:
       "Made the front-end and live updates feature with React, FastAPI, and PostgresSQL",
+    tags: ["Academic", "Team of 4"],
   },
 ];
 
@@ -170,6 +175,7 @@ function Gallery() {
               type={item.type}
               hoverTitle={item.hoverTitle}
               hoverDescription={item.hoverDescription}
+              tags={item.tags}
             />
           ))}
       </div>
@@ -183,6 +189,7 @@ interface GalleryItemProps {
   type: Filter; // Type of the item (Game or App)
   hoverTitle: string; // Title to show on hover
   hoverDescription: string; // Optional description to show on hover
+  tags: string[];
 }
 
 export interface TFilterState {
@@ -192,26 +199,42 @@ export interface TFilterState {
 
 function GalleryItem(props: GalleryItemProps) {
   return (
-    <Link href={props.href} className="relative text-white">
-      <img
-        src={props.img} // Use the img prop
-        className="aspect-video object-cover"
-      />
+    <div>
+      <Link href={props.href} className="relative text-white">
+        <div className="relative">
+          <img
+            src={props.img} // Use the img prop
+            className="aspect-video object-cover relative"
+          />
+          <div className="absolute bottom-0 left-0 right-0 h-[20px] bg-gradient-to-t from-black to-transparent"></div>
+        </div>
 
-      <div
-        className={`absolute top-1 left-1 z-1 ${
-          props.type == Filter.Game
-            ? "bg-[rgba(255,102,203,1)]"
-            : "bg-[rgba(64,195,255,1)]"
-        } rounded-sm w-5 h-5`}
-      ></div>
+        <div
+          className={`absolute  left-3 top-0 z-1 ${
+            props.type == Filter.Game
+              ? "bg-[rgba(255,102,203,1)]"
+              : "bg-[rgba(64,195,255,1)]"
+          }  w-4 h-[30px]`}
+        ></div>
 
-      <div className="opacity-0 absolute top-0 left-0 bg-[#606060db] hover:opacity-100 min-w-full min-h-full flex justify-center items-center flex-col text-center transition-opacity duration-300 ease-in-out">
-        <span className="font-bold text-2xl">{props.hoverTitle}</span>
-        {props.hoverDescription && <span>{props.hoverDescription}</span>}{" "}
-        {/* Optional description */}
-      </div>
-    </Link>
+        <div className="opacity-0 absolute top-0 left-0 bg-[#606060db] hover:opacity-100 min-w-full min-h-full flex justify-center items-center flex-col text-center transition-opacity duration-300 ease-in-out">
+          <span className="font-bold text-2xl">{props.hoverTitle}</span>
+          {props.hoverDescription && <span>{props.hoverDescription}</span>}{" "}
+          {/* Optional description */}
+        </div>
+        <div
+          className={`bg-black z-1 rounded-sm w-full h-16 flex flex-row gap-3 items-center px-3 justify-center`}
+        >
+          {props.tags.map((tag, index) => {
+            return (
+              <span className="border-[#222222]  border-2 px-4 font-bold mx-3 py-2 text-sm rounded-md text-gray-400">
+                {tag}
+              </span>
+            );
+          })}
+        </div>
+      </Link>
+    </div>
   );
 }
 
