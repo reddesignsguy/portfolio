@@ -82,7 +82,7 @@ export default function Home() {
           </p>
           <p className="text-lg max-w-3xl text-center">
             {" "}
-            Here's an overview of my skills:{" "}
+            Here&apos;s n overview of my skills:{" "}
           </p>
           <CustomTable headers={headers} data={data} />
         </div>
@@ -227,7 +227,10 @@ function GalleryItem(props: GalleryItemProps) {
         >
           {props.tags.map((tag, index) => {
             return (
-              <span className="border-[#222222]  border-2 px-4 font-bold mx-3 py-2 text-sm rounded-md text-gray-400">
+              <span
+                key={index}
+                className="border-[#222222]  border-2 px-4 font-bold mx-3 py-2 text-sm rounded-md text-gray-400"
+              >
                 {tag}
               </span>
             );
