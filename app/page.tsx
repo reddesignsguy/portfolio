@@ -56,7 +56,7 @@ const galleryItemsData: GalleryItemProps[] = [
 
 export default function Home() {
   return (
-    <div className="font-[family-name:var(--font-geist-sans)] max-w-8xl m-auto scroll-smooth bg-[url('/static/images/Background.png')] bg-cover bg-center h-screen">
+    <div className="font-[family-name:var(--font-geist-sans)] max-w-8xl m-auto scroll-smooth bg-[url('/static/images/Background.png')] bg-cover bg-center h-screen text-white">
       <NavBar />
       <div className="max-w-7xl mx-auto min-h-screen max-h-screen flex flex-col justify-center">
         <FireEyes />
