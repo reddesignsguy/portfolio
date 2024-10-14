@@ -4,6 +4,7 @@ import { useRive } from "@rive-app/react-canvas-lite";
 import NavBar from "./components/NavBar";
 import Link from "next/link";
 import { useState } from "react";
+import Image from "next/image";
 
 enum Filter {
   Game,
@@ -202,9 +203,13 @@ function GalleryItem(props: GalleryItemProps) {
     <div>
       <Link href={props.href} className="relative text-white">
         <div className="relative">
-          <img
+          <Image
             src={props.img} // Use the img prop
-            className="aspect-video object-cover relative"
+            alt={props.hoverTitle}
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="aspect-video object-cover relative w-full h-auto"
           />
           <div className="absolute bottom-0 left-0 right-0 h-[20px] bg-gradient-to-t from-black to-transparent"></div>
         </div>
