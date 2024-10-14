@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+
 export interface ProjectInfo {
   title: string;
   description: string;
@@ -16,10 +18,14 @@ export function ProjectLayout(info: ProjectInfo) {
         <div className="">
           <div className="flex flex-row mt-10">
             <span className="text-7xl font-bold">{info.title}</span>
-            <img
-              className="ml-5 w-32 flex mt-auto mr-10"
+            <Image
+              alt={info.title}
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="ml-5 w-32 flex mt-auto mr-10 h-auto"
               src="static/vectors/title-block.svg"
-            ></img>
+            ></Image>
           </div>
           <h1 className="text-2xl font-normal mt-4">
             {info.description}{" "}
