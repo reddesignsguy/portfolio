@@ -29,6 +29,15 @@ const galleryItemsData: GalleryItemProps[] = [
     tags: ["Academic", "Team of 2"],
   },
   {
+    href: "/ghoul",
+    img: "/static/projects/ghoul/Thumbnail.png",
+    type: Filter.Game,
+    hoverTitle: "Detective Ghoul",
+    hoverDescription:
+      "Architected and implemented inventory, checkpoint, UI, and object-interaction systems",
+    tags: ["Game Jam", "Team of 5"],
+  },
+  {
     href: "/seapirates",
     img: "/static/projects/seapirates/Thumbnail.png",
     type: Filter.Game,
