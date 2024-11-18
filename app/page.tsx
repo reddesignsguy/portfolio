@@ -38,6 +38,15 @@ const galleryItemsData: GalleryItemProps[] = [
     tags: ["Game Jam", "Team of 5"],
   },
   {
+    href: "/ethereal",
+    img: "/static/projects/ethereal/Thumbnail.png",
+    type: Filter.Game,
+    hoverTitle: "Ethereal Escape",
+    hoverDescription:
+      "Worked within VR constraints and developed gameplay mechanics",
+    tags: ["Hackathon", "Team of 3"],
+  },
+  {
     href: "/seapirates",
     img: "/static/projects/seapirates/Thumbnail.png",
     type: Filter.Game,
