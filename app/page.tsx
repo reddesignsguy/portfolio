@@ -88,25 +88,58 @@ export default function Home() {
         </h1>
       </div>
       <div className="my-36">
-        <div className="flex justify-center flex-col items-center gap-5">
+        <div className="flex justify-center flex-col items-center gap-5	">
           {" "}
           <h1 className="text-4xl font-bold mx-12">About Me</h1>
-          <p className="text-lg max-w-3xl text-center">
+          <p className="text-lg max-w-3xl text-left  indent-5">
             I obtained my B.S. in Software Engineering from{" "}
             <b className="text-pink-400">SJSU</b>. I was a Software Developer
             Engineer Intern at <b className="text-pink-400">Zillow</b> in 2023
             and Python and Java tutor at{" "}
             <b className="text-pink-400">Talentnook</b> from 2020-2023. I am
             looking for programming roles preferably in the games industry.
+            <br /> <br />
           </p>
+          <p className="text-lg max-w-3xl text-left  indent-5">
+            Though I enjoy many areas of games programming, I have experience
+            with or have an interest for:
+          </p>
+          <p className="text-lg max-w-3xl text-left">
+            <ul className="list-disc pl-10 text-left">
+              <ul>
+                <li>
+                  <b className="text-pink-400">Genres:</b> RPG, action,
+                  adventure, shooter, FPS, and narrative-driven
+                </li>
+                <li>
+                  <b className="text-pink-400">Areas:</b> Gameplay programming,
+                  animation &#40;IK, motion matching, traditional FSMs&#41;,
+                  behavior trees for AI, backend systems &#40;inventory, quests,
+                  dialogue, saving, progression&#41;, and UI systems
+                </li>
+                <li>
+                  <b className="text-pink-400">Engines:</b> Unity, ROBLOX
+                  Studio, and Pygame
+                </li>
+                <li>
+                  <b className="text-pink-400">Languages:</b> C#, C++, and Lua
+                </li>
+              </ul>
+            </ul>
+          </p>
+          <br />
           <p className="text-lg max-w-3xl text-center">
             {" "}
-            Here&apos;s an overview of my skills:{" "}
+            Here&apos;s a game dev reel of my work:{" "}
           </p>
-          <CustomTable headers={headers} data={data} />
+          <DemoReel />
+          {/* <p className="text-lg max-w-3xl text-center">
+            {" "}
+            and an overview of my skills:{" "}
+          </p> */}
+          {/* <CustomTable headers={headers} data={data} /> */}
         </div>
-
-        <ResumeDownload />
+        {/* <ResumeDownload /> */}
       </div>
       <Gallery />
     </div>
@@ -274,78 +307,92 @@ function FireEyes() {
   return <RiveComponent className="h-[165px] flex " />;
 }
 
-type CustomTableProps = {
-  headers: string[]; // An array of strings for column headers
-  data: string[][]; // A 2D array of strings for table data (rows and cells)
-};
+// type CustomTableProps = {
+//   headers: string[]; // An array of strings for column headers
+//   data: string[][]; // A 2D array of strings for table data (rows and cells)
+// };
 
-const headers: string[] = ["Game Dev", "Web Dev"];
-const data: string[][] = [
-  ["C#, C++, Lua", "Java, Python, Typescript, Javascript"],
-  ["Unity, ROBLOX, OpenFrameworks", "React, Express, Node, PostgreSQL, MySQL"],
-];
+// const headers: string[] = ["Game Dev", "Web Dev"];
+// const data: string[][] = [
+//   ["C#, C++, Lua", "Java, Python, Typescript, Javascript"],
+//   ["Unity, ROBLOX, OpenFrameworks", "React, Express, Node, PostgreSQL, MySQL"],
+// ];
 
-const CustomTable: React.FC<CustomTableProps> = ({ headers, data }) => {
+// const CustomTable: React.FC<CustomTableProps> = ({ headers, data }) => {
+//   return (
+//     <div className="max-w-3xl mx-auto my-3">
+//       <table className="table-auto border-collapse border-[rgb(134,51,51)] w-full">
+//         {/* Table Head */}
+//         <thead>
+//           <tr>
+//             {headers.map((header, index) => (
+//               <th
+//                 key={index}
+//                 className={` border-gray-300 px-4 py-2 text-[white]  text-2xl bg-[rgb(35,35,35)]
+//                `}
+//               >
+//                 <div className="flex justify-center items-center">
+//                   <div
+//                     className={`w-4 h-4  mr-2 rounded-md ${
+//                       index == 0
+//                         ? "bg-[rgba(255,102,203,1)]"
+//                         : "bg-[rgba(64,195,255,1)]"
+//                     }`}
+//                   ></div>
+//                   {header}
+//                 </div>
+//               </th>
+//             ))}
+//           </tr>
+//         </thead>
+
+//         {/* Table Body */}
+//         <tbody>
+//           {data.map((row, rowIndex) => (
+//             <tr key={rowIndex}>
+//               {row.map((cell, cellIndex) => (
+//                 <td
+//                   key={cellIndex}
+//                   className={` border-#f0f0f0-300 px-4 py-2 bg-[rgb(28,28,28)]`}
+//                 >
+//                   {cell}
+//                 </td>
+//               ))}
+//             </tr>
+//           ))}
+//         </tbody>
+//       </table>
+//     </div>
+//   );
+// };
+
+// const ResumeDownload = () => {
+//   return (
+//     <div className="flex flex-col items-center my-36">
+//       <h2 className="text-4xl font-bold mb-4"> Resume </h2>
+//       <iframe
+//         src="/static/PortfolioResume.pdf" // Path to your PDF file in the public directory
+//         width="500" // Adjust width as needed
+//         height="700" // Adjust height as needed
+//         className="border-2 border-gray-300"
+//       >
+//         This browser does not support PDFs. Please download the PDF to view it:
+//         <a href="/static/AlbanyPatriawan_Resume_Games.pdf">Download PDF</a>
+//       </iframe>
+//     </div>
+//   );
+// };
+
+const DemoReel = () => {
   return (
-    <div className="max-w-3xl mx-auto my-3">
-      <table className="table-auto border-collapse border-[rgb(134,51,51)] w-full">
-        {/* Table Head */}
-        <thead>
-          <tr>
-            {headers.map((header, index) => (
-              <th
-                key={index}
-                className={` border-gray-300 px-4 py-2 text-[white]  text-2xl bg-[rgb(35,35,35)]
-               `}
-              >
-                <div className="flex justify-center items-center">
-                  <div
-                    className={`w-4 h-4  mr-2 rounded-md ${
-                      index == 0
-                        ? "bg-[rgba(255,102,203,1)]"
-                        : "bg-[rgba(64,195,255,1)]"
-                    }`}
-                  ></div>
-                  {header}
-                </div>
-              </th>
-            ))}
-          </tr>
-        </thead>
-
-        {/* Table Body */}
-        <tbody>
-          {data.map((row, rowIndex) => (
-            <tr key={rowIndex}>
-              {row.map((cell, cellIndex) => (
-                <td
-                  key={cellIndex}
-                  className={` border-#f0f0f0-300 px-4 py-2 bg-[rgb(28,28,28)]`}
-                >
-                  {cell}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-};
-
-const ResumeDownload = () => {
-  return (
-    <div className="flex flex-col items-center my-36">
-      <h2 className="text-4xl font-bold mb-4"> Resume </h2>
+    <div className="w-[90%] max-w-[450px] h-[450px] mx-auto items-center">
+      {/* <h2 className="text-4xl font-bold mb-4"> Game Dev Reel </h2> */}
       <iframe
-        src="/static/PortfolioResume.pdf" // Path to your PDF file in the public directory
-        width="500" // Adjust width as needed
-        height="700" // Adjust height as needed
-        className="border-2 border-gray-300"
-      >
-        This browser does not support PDFs. Please download the PDF to view it:
-        <a href="/static/AlbanyPatriawan_Resume_Games.pdf">Download PDF</a>
-      </iframe>
+        className="w-full h-full"
+        src="https://www.youtube.com/embed/2SvdoHie9yc"
+        frameBorder="0"
+        allowFullScreen
+      />
     </div>
   );
 };
