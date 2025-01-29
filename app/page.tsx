@@ -75,37 +75,65 @@ const galleryItemsData: GalleryItemProps[] = [
 
 export default function Home() {
   return (
-    <div className="font-[family-name:var(--font-geist-sans)] max-w-8xl m-auto scroll-smooth bg-[url('/static/images/Background.png')] bg-cover bg-center h-screen text-white">
+    <div
+      className="font-[family-name:var(--font-geist-sans)] max-w-8xl m-auto scroll-smooth h-screen text-white relative"
+      style={{
+        backgroundImage: "url('/static/images/Background.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+      }}
+    >
       <NavBar />
-      <div className="max-w-7xl mx-auto min-h-screen max-h-screen flex flex-col justify-center">
+      {/* Hero Section */}
+      <div className="fixed top-0 left-0 w-full h-screen flex flex-col justify-center z-0">
         <FireEyes />
         <h1
           style={{ textShadow: "2px 2px 4px rgba(53, 53, 53, 0.5)" }}
-          className="font-bold text-center items-center leading-none tracking-tight  text-2xl md:text-4xl lg:text-5xl text-white "
+          className="font-bold text-center items-center leading-none tracking-tight  text-2xl md:text-4xl lg:text-5xl text-white sticky"
         >
           Hi, I&apos;m Albany! I&apos;m a game developer and software engineer
           based in the Bay Area.
         </h1>
       </div>
-      <div className="my-36">
-        <div className="flex justify-center flex-col items-center gap-5	">
+      {/* After Hero Section */}
+      <div className="mt-[calc(100vh-4rem)] mb-36 z-20 relative">
+        {/* Background that scrolls over hero component */}
+        <div className="absolute top-[40rem] inset-0 bg-[rgb(13,12,13)] z-0" />
+        <div className="relative h-[40rem] bg-gradient-to-t from-[rgb(13,12,13)] to-transparent"></div>
+        {/* About ME */}
+        <div className="flex justify-center flex-col items-center gap-5	relative z-20 mt-[10rem]">
           {" "}
-          <h1 className="text-4xl font-bold mx-12">About Me</h1>
+          <h1 className="text-4xl font-light">Hello! I'm Albany Patriawan.</h1>
           <p className="text-lg max-w-3xl text-left  indent-5">
             I obtained my B.S. in Software Engineering from{" "}
             <b className="text-pink-400">SJSU</b>. I was a Software Developer
             Engineer Intern at <b className="text-pink-400">Zillow</b> in 2023
             and Python and Java tutor at{" "}
             <b className="text-pink-400">Talentnook</b> from 2020-2023. I am
-            looking for programming roles preferably in the games industry.
-            <br /> <br />
+            looking for software engineering and gameplay programming roles.
+            {/* <br /> <br /> */}
           </p>
-          <p className="text-lg max-w-3xl text-left  indent-5">
+          {/* <br /> */}
+          <h1 className="mt-[h-screen] text-4xl font-light">
+            Check out my work :)
+          </h1>
+          {/* <p className="text-lg max-w-3xl text-center">
+            {" "}
+            Here&apos;s a game dev reel of my work:{" "}
+          </p> */}
+          <DemoReel />
+          {/* <p className="text-lg max-w-3xl text-center">
+            {" "}
+            An overview of my skills:{" "}
+          </p>
+          <CustomTable headers={headers} data={data} />
+          <p className="text-lg max-w-3xl text-left">
             Though I enjoy many areas of games programming, I have experience
             with or have an interest for:
           </p>
           <p className="text-lg max-w-3xl text-left">
-            <ul className="list-disc pl-10 text-left">
+            <ul className="list-disctext-left">
               <ul>
                 <li>
                   <b className="text-pink-400">Genres:</b> RPG, action,
@@ -126,22 +154,11 @@ export default function Home() {
                 </li>
               </ul>
             </ul>
-          </p>
-          <br />
-          <p className="text-lg max-w-3xl text-center">
-            {" "}
-            Here&apos;s a game dev reel of my work:{" "}
-          </p>
-          <DemoReel />
-          {/* <p className="text-lg max-w-3xl text-center">
-            {" "}
-            and an overview of my skills:{" "}
           </p> */}
-          {/* <CustomTable headers={headers} data={data} /> */}
+          {/* <h1 className="text-3xl font-light">Projects</h1> */}
+          <Gallery />
         </div>
-        {/* <ResumeDownload /> */}
       </div>
-      <Gallery />
     </div>
   );
 }
@@ -173,12 +190,13 @@ function Gallery() {
   };
 
   return (
-    <>
-      <h1 className="text-4xl font-bold flex justify-center mb-2">Projects</h1>
+    <div className="relative bg-[rgba(1,1,1,1)] max-w-3xl p-6 rounded-lg">
+      {/* <h1 className="text-4xl font-bold flex justify-center mb-2">Projects</h1> */}
+      <h1 className="text-l font-semibold text-neutral-400">Portfolio</h1>
       <div
         className={`transition-all duration-500 overflow-hidden flex space-x-2 max-w-full mb-4 justify-center`}
       >
-        <div className="flex items-center space-x-2 p-1 rounded-sm text-white font-bold">
+        {/* <div className="flex items-center space-x-2 p-1 rounded-sm text-white font-bold">
           <input
             type="checkbox"
             id="0"
@@ -207,11 +225,11 @@ function Gallery() {
           >
             App
           </label>
-        </div>
+        </div> */}
       </div>
       <div
         id="work-section"
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 px-8"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-10 mx-auto"
       >
         {galleryItemsData
           .filter((item) => {
@@ -231,7 +249,7 @@ function Gallery() {
             />
           ))}
       </div>
-    </>
+    </div>
   );
 }
 
@@ -307,64 +325,64 @@ function FireEyes() {
   return <RiveComponent className="h-[165px] flex " />;
 }
 
-// type CustomTableProps = {
-//   headers: string[]; // An array of strings for column headers
-//   data: string[][]; // A 2D array of strings for table data (rows and cells)
-// };
+type CustomTableProps = {
+  headers: string[]; // An array of strings for column headers
+  data: string[][]; // A 2D array of strings for table data (rows and cells)
+};
 
-// const headers: string[] = ["Game Dev", "Web Dev"];
-// const data: string[][] = [
-//   ["C#, C++, Lua", "Java, Python, Typescript, Javascript"],
-//   ["Unity, ROBLOX, OpenFrameworks", "React, Express, Node, PostgreSQL, MySQL"],
-// ];
+const headers: string[] = ["Game Dev", "Web Dev"];
+const data: string[][] = [
+  ["C#, C++, Lua", "Java, Python, Typescript, Javascript"],
+  ["Unity, ROBLOX, OpenFrameworks", "React, Express, Node, PostgreSQL, MySQL"],
+];
 
-// const CustomTable: React.FC<CustomTableProps> = ({ headers, data }) => {
-//   return (
-//     <div className="max-w-3xl mx-auto my-3">
-//       <table className="table-auto border-collapse border-[rgb(134,51,51)] w-full">
-//         {/* Table Head */}
-//         <thead>
-//           <tr>
-//             {headers.map((header, index) => (
-//               <th
-//                 key={index}
-//                 className={` border-gray-300 px-4 py-2 text-[white]  text-2xl bg-[rgb(35,35,35)]
-//                `}
-//               >
-//                 <div className="flex justify-center items-center">
-//                   <div
-//                     className={`w-4 h-4  mr-2 rounded-md ${
-//                       index == 0
-//                         ? "bg-[rgba(255,102,203,1)]"
-//                         : "bg-[rgba(64,195,255,1)]"
-//                     }`}
-//                   ></div>
-//                   {header}
-//                 </div>
-//               </th>
-//             ))}
-//           </tr>
-//         </thead>
+const CustomTable: React.FC<CustomTableProps> = ({ headers, data }) => {
+  return (
+    <div className="max-w-3xl mx-auto my-3">
+      <table className="table-auto border-collapse border-[rgb(134,51,51)] w-full">
+        {/* Table Head */}
+        <thead>
+          <tr>
+            {headers.map((header, index) => (
+              <th
+                key={index}
+                className={` border-gray-300 px-4 py-2 text-[white]  text-2xl bg-[rgb(35,35,35)]
+               `}
+              >
+                <div className="flex justify-center items-center">
+                  <div
+                    className={`w-4 h-4  mr-2 rounded-md ${
+                      index == 0
+                        ? "bg-[rgba(255,102,203,1)]"
+                        : "bg-[rgba(64,195,255,1)]"
+                    }`}
+                  ></div>
+                  {header}
+                </div>
+              </th>
+            ))}
+          </tr>
+        </thead>
 
-//         {/* Table Body */}
-//         <tbody>
-//           {data.map((row, rowIndex) => (
-//             <tr key={rowIndex}>
-//               {row.map((cell, cellIndex) => (
-//                 <td
-//                   key={cellIndex}
-//                   className={` border-#f0f0f0-300 px-4 py-2 bg-[rgb(28,28,28)]`}
-//                 >
-//                   {cell}
-//                 </td>
-//               ))}
-//             </tr>
-//           ))}
-//         </tbody>
-//       </table>
-//     </div>
-//   );
-// };
+        {/* Table Body */}
+        <tbody>
+          {data.map((row, rowIndex) => (
+            <tr key={rowIndex}>
+              {row.map((cell, cellIndex) => (
+                <td
+                  key={cellIndex}
+                  className={` border-#f0f0f0-300 px-4 py-2 bg-[rgb(13,12,13)]`}
+                >
+                  {cell}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
 
 // const ResumeDownload = () => {
 //   return (
@@ -385,14 +403,20 @@ function FireEyes() {
 
 const DemoReel = () => {
   return (
-    <div className="w-[90%] max-w-[450px] h-[450px] mx-auto items-center">
+    <div className="w-[90%] max-w-3xl h-fit mx-auto items-center">
       {/* <h2 className="text-4xl font-bold mb-4"> Game Dev Reel </h2> */}
-      <iframe
-        className="w-full h-full"
-        src="https://www.youtube.com/embed/2SvdoHie9yc"
-        frameBorder="0"
-        allowFullScreen
-      />
+      <div className="w-full h-full p-5 bg-[rgba(1,1,1,1)] rounded-xl">
+        <h1 className="text-l font-semibold text-neutral-400 mb-3">
+          Demo Reel
+        </h1>
+
+        <iframe
+          className="w-full h-[450px]"
+          src="https://www.youtube.com/embed/2SvdoHie9yc"
+          frameBorder="0"
+          allowFullScreen
+        />
+      </div>
     </div>
   );
 };
