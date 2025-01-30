@@ -104,7 +104,9 @@ export default function Home() {
         {/* About Me */}
         <div className="flex justify-center flex-col items-center gap-5	relative bottom-[15rem] z-20 h-[calc(100vh-15rem)] ">
           {" "}
-          <h1 className="text-4xl font-light">Hello! I'm Albany Patriawan.</h1>
+          <h1 className="text-4xl font-light">
+            Hello! I&apos;m Albany Patriawan.
+          </h1>
           <p className="text-lg max-w-3xl text-left  indent-5">
             I obtained my B.S. in Software Engineering from{" "}
             <b className="text-pink-400">SJSU</b>. I was a Software Developer
@@ -199,7 +201,7 @@ function Gallery() {
       <div
         className={`transition-all duration-500 overflow-hidden flex space-x-2 max-w-full mb-4 justify-center`}
       >
-        {/* <div className="flex items-center space-x-2 p-1 rounded-sm text-white font-bold">
+        <div className="flex items-center space-x-2 p-1 rounded-sm text-white font-bold">
           <input
             type="checkbox"
             id="0"
@@ -228,7 +230,7 @@ function Gallery() {
           >
             App
           </label>
-        </div> */}
+        </div>
       </div>
       <div
         id="work-section"
@@ -328,64 +330,64 @@ function FireEyes() {
   return <RiveComponent className="h-[165px] flex " />;
 }
 
-type CustomTableProps = {
-  headers: string[]; // An array of strings for column headers
-  data: string[][]; // A 2D array of strings for table data (rows and cells)
-};
+// type CustomTableProps = {
+//   headers: string[]; // An array of strings for column headers
+//   data: string[][]; // A 2D array of strings for table data (rows and cells)
+// };
 
-const headers: string[] = ["Game Dev", "Web Dev"];
-const data: string[][] = [
-  ["C#, C++, Lua", "Java, Python, Typescript, Javascript"],
-  ["Unity, ROBLOX, OpenFrameworks", "React, Express, Node, PostgreSQL, MySQL"],
-];
+// const headers: string[] = ["Game Dev", "Web Dev"];
+// const data: string[][] = [
+//   ["C#, C++, Lua", "Java, Python, Typescript, Javascript"],
+//   ["Unity, ROBLOX, OpenFrameworks", "React, Express, Node, PostgreSQL, MySQL"],
+// ];
 
-const CustomTable: React.FC<CustomTableProps> = ({ headers, data }) => {
-  return (
-    <div className="max-w-3xl mx-auto my-3">
-      <table className="table-auto border-collapse border-[rgb(134,51,51)] w-full">
-        {/* Table Head */}
-        <thead>
-          <tr>
-            {headers.map((header, index) => (
-              <th
-                key={index}
-                className={` border-gray-300 px-4 py-2 text-[white]  text-2xl bg-[rgb(35,35,35)]
-               `}
-              >
-                <div className="flex justify-center items-center">
-                  <div
-                    className={`w-4 h-4  mr-2 rounded-md ${
-                      index == 0
-                        ? "bg-[rgba(255,102,203,1)]"
-                        : "bg-[rgba(64,195,255,1)]"
-                    }`}
-                  ></div>
-                  {header}
-                </div>
-              </th>
-            ))}
-          </tr>
-        </thead>
+// const CustomTable: React.FC<CustomTableProps> = ({ headers, data }) => {
+//   return (
+//     <div className="max-w-3xl mx-auto my-3">
+//       <table className="table-auto border-collapse border-[rgb(134,51,51)] w-full">
+//         {/* Table Head */}
+//         <thead>
+//           <tr>
+//             {headers.map((header, index) => (
+//               <th
+//                 key={index}
+//                 className={` border-gray-300 px-4 py-2 text-[white]  text-2xl bg-[rgb(35,35,35)]
+//                `}
+//               >
+//                 <div className="flex justify-center items-center">
+//                   <div
+//                     className={`w-4 h-4  mr-2 rounded-md ${
+//                       index == 0
+//                         ? "bg-[rgba(255,102,203,1)]"
+//                         : "bg-[rgba(64,195,255,1)]"
+//                     }`}
+//                   ></div>
+//                   {header}
+//                 </div>
+//               </th>
+//             ))}
+//           </tr>
+//         </thead>
 
-        {/* Table Body */}
-        <tbody>
-          {data.map((row, rowIndex) => (
-            <tr key={rowIndex}>
-              {row.map((cell, cellIndex) => (
-                <td
-                  key={cellIndex}
-                  className={` border-#f0f0f0-300 px-4 py-2 bg-[rgb(13,12,13)]`}
-                >
-                  {cell}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-};
+//         {/* Table Body */}
+//         <tbody>
+//           {data.map((row, rowIndex) => (
+//             <tr key={rowIndex}>
+//               {row.map((cell, cellIndex) => (
+//                 <td
+//                   key={cellIndex}
+//                   className={` border-#f0f0f0-300 px-4 py-2 bg-[rgb(13,12,13)]`}
+//                 >
+//                   {cell}
+//                 </td>
+//               ))}
+//             </tr>
+//           ))}
+//         </tbody>
+//       </table>
+//     </div>
+//   );
+// };
 
 // const ResumeDownload = () => {
 //   return (
