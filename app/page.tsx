@@ -101,8 +101,8 @@ export default function Home() {
         {/* Background that scrolls over hero component */}
         <div className="absolute top-[40rem] inset-0 bg-[rgb(13,12,13)] z-0" />
         <div className="relative h-[40rem] bg-gradient-to-t from-[rgb(13,12,13)] to-transparent"></div>
-        {/* About ME */}
-        <div className="flex justify-center flex-col items-center gap-5	relative z-20 mt-[10rem]">
+        {/* About Me */}
+        <div className="flex justify-center flex-col items-center gap-5	relative bottom-[15rem] z-20 h-[calc(100vh-15rem)] ">
           {" "}
           <h1 className="text-4xl font-light">Hello! I'm Albany Patriawan.</h1>
           <p className="text-lg max-w-3xl text-left  indent-5">
@@ -115,14 +115,10 @@ export default function Home() {
             {/* <br /> <br /> */}
           </p>
           {/* <br /> */}
-          <h1 className="mt-[h-screen] text-4xl font-light">
-            Check out my work :)
-          </h1>
           {/* <p className="text-lg max-w-3xl text-center">
             {" "}
             Here&apos;s a game dev reel of my work:{" "}
           </p> */}
-          <DemoReel />
           {/* <p className="text-lg max-w-3xl text-center">
             {" "}
             An overview of my skills:{" "}
@@ -156,6 +152,13 @@ export default function Home() {
             </ul>
           </p> */}
           {/* <h1 className="text-3xl font-light">Projects</h1> */}
+        </div>
+        {/* Work */}
+        <div className="flex justify-center flex-col items-center gap-5	relative z-20 ">
+          <h1 className="mt-[h-screen] text-4xl font-light">
+            Check out my work :)
+          </h1>
+          <DemoReel />
           <Gallery />
         </div>
       </div>
