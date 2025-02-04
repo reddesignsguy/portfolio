@@ -6,6 +6,8 @@ import Link from "next/link";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { ChevronDown } from "react-feather";
+import AutoScroll from "./components/AutoScroll";
 
 enum Filter {
   All = "All",
@@ -107,6 +109,29 @@ function AnimatedHeading() {
   );
 }
 
+function ScrollDownIcon({ targetId }: { targetId: string }) {
+  const handleScroll = () => {
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  return (
+    <motion.div
+      className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center cursor-pointer"
+      animate={{ y: [0, 10, 0] }}
+      transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+      onClick={handleScroll}
+    >
+      <span className="text-white text-sm font-medium opacity-80 mb-1">
+        EXPLORE
+      </span>
+      <ChevronDown className="w-8 h-8 text-white opacity-80" />
+    </motion.div>
+  );
+}
+
 export default function Home() {
   return (
     <div
@@ -118,6 +143,7 @@ export default function Home() {
         backgroundAttachment: "fixed",
       }}
     >
+      <AutoScroll targetId="projects" scrollThreshold={600} />
       <NavBar />
       {/* Hero Section */}
       <div
@@ -128,6 +154,7 @@ export default function Home() {
           <FireEyes />
           <AnimatedHeading />
         </div>
+        <ScrollDownIcon targetId="projects" />
       </div>
       {/* After Hero Section */}
       <div className="mt-[calc(100vh-4rem)] mb-36 z-20  relative">
@@ -136,7 +163,10 @@ export default function Home() {
         <div className="relative h-[40rem] bg-gradient-to-t from-[rgb(13,12,13)] to-transparent"></div>
 
         {/* Work */}
-        <div className="flex mt-[12rem] max-w-6xl justify-center flex-col items-center gap-5 mx-auto relative z-20 ">
+        <div
+          id="projects"
+          className="flex mt-[12rem] max-w-6xl justify-center flex-col items-center gap-5 mx-auto relative z-20 "
+        >
           <DemoReel />
           <br></br>
           <br></br>
