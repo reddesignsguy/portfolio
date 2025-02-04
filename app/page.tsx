@@ -86,28 +86,25 @@ export default function Home() {
     >
       <NavBar />
       {/* Hero Section */}
-      <div className="fixed top-0 left-0 w-full h-screen flex flex-col justify-center z-0">
-        <FireEyes />
-        <h1
-          style={{ textShadow: "2px 2px 4px rgba(53, 53, 53, 0.5)" }}
-          className="mx-12 font-bold text-center items-center leading-none tracking-tight  text-2xl md:text-4xl lg:text-5xl text-white sticky"
-        >
-          Hi, I&apos;m Albany! I&apos;m a game developer and software engineer
-          based in the Bay Area.
-        </h1>
+      <div className="fixed top-0 left-0 w-full h-screen flex flex-col justify-center items-center z-0">
+        <div className="max-w-7xl">
+          <FireEyes />
+          <h1
+            style={{ textShadow: "2px 2px 4px rgba(53, 53, 53, 0.5)" }}
+            className="mx-12 font-bold text-center items-center leading-none tracking-tight  text-2xl md:text-4xl lg:text-5xl text-white sticky"
+          >
+            Hi, I&apos;m Albany! I like building games and software.
+          </h1>
+        </div>
       </div>
       {/* After Hero Section */}
-      <div className="mt-[calc(100vh-4rem)] mb-36 z-20 relative ">
+      <div className="mt-[calc(100vh-4rem)] mb-36 z-20  relative">
         {/* Background that scrolls over hero component */}
         <div className="absolute top-[40rem] inset-0 bg-[rgb(13,12,13)] z-0" />
         <div className="relative h-[40rem] bg-gradient-to-t from-[rgb(13,12,13)] to-transparent"></div>
-        {/* About Me */}
 
         {/* Work */}
-        <div className="flex mt-[12rem] max-w-3xl justify-center flex-col items-center gap-5	relative z-20 ">
-          <h1 className="mt-[h-screen] text-4xl font-light">
-            Check out my work :)
-          </h1>
+        <div className="flex mt-[12rem] max-w-6xl justify-center flex-col items-center gap-5 mx-auto relative z-20 ">
           <DemoReel />
           <Gallery />
         </div>
@@ -279,82 +276,6 @@ function FireEyes() {
 
   return <RiveComponent className="h-[165px] flex " />;
 }
-
-// type CustomTableProps = {
-//   headers: string[]; // An array of strings for column headers
-//   data: string[][]; // A 2D array of strings for table data (rows and cells)
-// };
-
-// const headers: string[] = ["Game Dev", "Web Dev"];
-// const data: string[][] = [
-//   ["C#, C++, Lua", "Java, Python, Typescript, Javascript"],
-//   ["Unity, ROBLOX, OpenFrameworks", "React, Express, Node, PostgreSQL, MySQL"],
-// ];
-
-// const CustomTable: React.FC<CustomTableProps> = ({ headers, data }) => {
-//   return (
-//     <div className="max-w-3xl mx-auto my-3">
-//       <table className="table-auto border-collapse border-[rgb(134,51,51)] w-full">
-//         {/* Table Head */}
-//         <thead>
-//           <tr>
-//             {headers.map((header, index) => (
-//               <th
-//                 key={index}
-//                 className={` border-gray-300 px-4 py-2 text-[white]  text-2xl bg-[rgb(35,35,35)]
-//                `}
-//               >
-//                 <div className="flex justify-center items-center">
-//                   <div
-//                     className={`w-4 h-4  mr-2 rounded-md ${
-//                       index == 0
-//                         ? "bg-[rgba(255,102,203,1)]"
-//                         : "bg-[rgba(64,195,255,1)]"
-//                     }`}
-//                   ></div>
-//                   {header}
-//                 </div>
-//               </th>
-//             ))}
-//           </tr>
-//         </thead>
-
-//         {/* Table Body */}
-//         <tbody>
-//           {data.map((row, rowIndex) => (
-//             <tr key={rowIndex}>
-//               {row.map((cell, cellIndex) => (
-//                 <td
-//                   key={cellIndex}
-//                   className={` border-#f0f0f0-300 px-4 py-2 bg-[rgb(13,12,13)]`}
-//                 >
-//                   {cell}
-//                 </td>
-//               ))}
-//             </tr>
-//           ))}
-//         </tbody>
-//       </table>
-//     </div>
-//   );
-// };
-
-// const ResumeDownload = () => {
-//   return (
-//     <div className="flex flex-col items-center my-36">
-//       <h2 className="text-4xl font-bold mb-4"> Resume </h2>
-//       <iframe
-//         src="/static/PortfolioResume.pdf" // Path to your PDF file in the public directory
-//         width="500" // Adjust width as needed
-//         height="700" // Adjust height as needed
-//         className="border-2 border-gray-300"
-//       >
-//         This browser does not support PDFs. Please download the PDF to view it:
-//         <a href="/static/AlbanyPatriawan_Resume_Games.pdf">Download PDF</a>
-//       </iframe>
-//     </div>
-//   );
-// };
 
 const DemoReel = () => {
   return (
