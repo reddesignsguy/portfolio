@@ -3,13 +3,13 @@ type CustomTableProps = {
   data: string[][]; // A 2D array of strings for table data (rows and cells)
 };
 
-const headers: string[] = ["Game Dev", "Web Dev"];
-const data: string[][] = [
-  ["C#, C++, Lua", "Java, Python, Typescript, Javascript"],
-  ["Unity, ROBLOX, OpenFrameworks", "React, Express, Node, PostgreSQL, MySQL"],
-];
+// const headers: string[] = ["Game Dev", "Web Dev"];
+// const data: string[][] = [
+//   ["C#, C++, Lua", "Java, Python, Typescript, Javascript"],
+//   ["Unity, ROBLOX, OpenFrameworks", "React, Express, Node, PostgreSQL, MySQL"],
+// ];
 
-const CustomTable: React.FC<CustomTableProps> = ({ headers, data }) => {
+export default function CustomTable({ headers, data }: CustomTableProps) {
   return (
     <div className="max-w-3xl mx-auto my-3">
       <table className="table-auto border-collapse border-[rgb(134,51,51)] w-full">
@@ -55,4 +55,4 @@ const CustomTable: React.FC<CustomTableProps> = ({ headers, data }) => {
       </table>
     </div>
   );
-};
+}

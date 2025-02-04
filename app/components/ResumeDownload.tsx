@@ -1,4 +1,4 @@
-const ResumeDownload = () => {
+export default function ResumeDownload() {
   return (
     <div className="flex flex-col items-center my-36">
       <h2 className="text-4xl font-bold mb-4"> Resume </h2>
@@ -13,4 +13,4 @@ const ResumeDownload = () => {
       </iframe>
     </div>
   );
-};
+}
