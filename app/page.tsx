@@ -7,8 +7,9 @@ import { useState } from "react";
 import Image from "next/image";
 
 enum Filter {
-  Game,
-  App,
+  All = "All",
+  Game = "Game",
+  App = "App",
 }
 
 const galleryItemsData: GalleryItemProps[] = [
@@ -86,7 +87,10 @@ export default function Home() {
     >
       <NavBar />
       {/* Hero Section */}
-      <div className="fixed top-0 left-0 w-full h-screen flex flex-col justify-center items-center z-0">
+      <div
+        className="fixed top-16 left-0 w-full flex flex-col justify-center items-center z-0 py-20"
+        style={{ height: "calc(100vh - 4rem)" }}
+      >
         <div className="max-w-7xl">
           <FireEyes />
           <h1
@@ -106,6 +110,8 @@ export default function Home() {
         {/* Work */}
         <div className="flex mt-[12rem] max-w-6xl justify-center flex-col items-center gap-5 mx-auto relative z-20 ">
           <DemoReel />
+          <br></br>
+          <br></br>
           <Gallery />
         </div>
       </div>
@@ -114,93 +120,72 @@ export default function Home() {
 }
 
 function Gallery() {
-  const [filterState, setFilters] = useState<TFilterState[]>([
-    { [0]: Filter.Game, [1]: true },
-    { [0]: Filter.App, [1]: true },
-  ]);
+  // State to track selected filter type
+  const [selectedFilter, setSelectedFilter] = useState<Filter>(Filter.All);
 
-  // Handler for when the checkbox changes
-  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const checked = event.target.checked;
-    const id: string = event.target.id;
-    handleClick(checked, id);
+  // Handler for changing the filter selection
+  const handleFilterChange = (filter: Filter) => {
+    setSelectedFilter(filter);
   };
 
-  // Function to handle the checked state
-  const handleClick = (checked: boolean, id: string) => {
-    console.log(checked, id);
-    const index = parseInt(id);
-    const newFilterStates = filterState.map((state, idx) => {
-      if (idx === index) {
-        return { ...state, [1]: checked }; // Update only the clicked checkbox
-      }
-      return state; // Return the current state unchanged
-    });
-    setFilters(newFilterStates);
-  };
+  // Logic to filter gallery items based on selected filter
+  const filteredItems = galleryItemsData.filter((item) => {
+    if (selectedFilter === Filter.All) {
+      return true; // Show all items
+    }
+    return item.type === selectedFilter; // Filter by Game or App
+  });
 
   return (
     <>
-      {/* <div className="relative bg-[rgba(1,1,1,1)] p-6 rounded-lg"> */}
-      {/* <h1 className="text-4xl font-bold flex justify-center mb-2">Projects</h1> */}
-      <h1 className="text-l font-semibold text-neutral-400">Portfolio</h1>
-      <div
-        className={`transition-all duration-500 overflow-hidden flex space-x-2 max-w-full mb-4 justify-center`}
-      >
-        <div className="flex items-center space-x-2 p-1 rounded-sm text-white font-bold">
-          <input
-            type="checkbox"
-            id="0"
-            className="appearance-none w-5 h-5 border-[1.5px] border-[rgba(255,102,203,1)] rounded-sm checked:bg-[rgb(144,32,97)] text-[0.7rem] checked:after:content-['✔'] checked:after:text-white checked:after:flex checked:after:items-center checked:after:justify-center"
-            onChange={handleCheckboxChange}
-            checked={filterState[0][1]} // Bind the checked state
-          />
-          <label
-            htmlFor="0"
-            className="bg-[rgba(255,102,203,1)] px-2 py-1 rounded-sm"
-          >
-            Game
-          </label>
-        </div>
-        <div className="flex items-center space-x-2 p-1 rounded-sm text-white font-bold ml-4">
-          <input
-            type="checkbox"
-            id="1"
-            className="appearance-none w-5 h-5 border-[1.5px] border-[rgba(64,195,255,1)] rounded-sm checked:bg-[rgb(32,97,144)]  text-[0.7rem] checked:after:content-['✔'] checked:after:text-white checked:after:flex checked:after:items-center checked:after:justify-center"
-            onChange={handleCheckboxChange}
-            checked={filterState[1][1]} // Bind the checked state
-          />
-          <label
-            htmlFor="1"
-            className="bg-[rgba(64,195,255,1)] px-2 py-1 rounded-sm "
-          >
-            App
-          </label>
+      <div className={`transition-all duration-500 overflow-hidden w-full`}>
+        {/* Selection bar for filtering */}
+        <div className="flex flex-row justify-between w-full">
+          <h1 className="text-2xl font-normal text-neutral-400">Portfolio</h1>
+          <div className="flex gap-5">
+            <span
+              onClick={() => handleFilterChange(Filter.All)}
+              className={`cursor-pointer text-lg text-neutral-400 ${
+                selectedFilter === Filter.All ? "font-bold" : "font-normal"
+              }`}
+            >
+              All
+            </span>
+            <span
+              onClick={() => handleFilterChange(Filter.Game)}
+              className={`cursor-pointer text-lg text-neutral-400 ${
+                selectedFilter === Filter.Game ? "font-bold" : "font-normal"
+              }`}
+            >
+              Games
+            </span>
+            <span
+              onClick={() => handleFilterChange(Filter.App)}
+              className={`cursor-pointer text-lg text-neutral-400 ${
+                selectedFilter === Filter.App ? "font-bold" : "font-normal"
+              }`}
+            >
+              Apps
+            </span>
+          </div>
         </div>
       </div>
       <div
         id="work-section"
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-10 mx-auto"
       >
-        {galleryItemsData
-          .filter((item) => {
-            return filterState.some(
-              (state) => state[0] === item.type && state[1] === true
-            );
-          })
-          .map((item, index) => (
-            <GalleryItem
-              key={index}
-              href={item.href}
-              img={item.img}
-              type={item.type}
-              hoverTitle={item.hoverTitle}
-              hoverDescription={item.hoverDescription}
-              tags={item.tags}
-            />
-          ))}
+        {filteredItems.map((item, index) => (
+          <GalleryItem
+            key={index}
+            href={item.href}
+            img={item.img}
+            type={item.type}
+            hoverTitle={item.hoverTitle}
+            hoverDescription={item.hoverDescription}
+            tags={item.tags}
+          />
+        ))}
       </div>
-      {/* </div> */}
     </>
   );
 }
@@ -234,14 +219,6 @@ function GalleryItem(props: GalleryItemProps) {
           />
           <div className="absolute bottom-0 left-0 right-0 h-[20px] bg-gradient-to-t from-black to-transparent"></div>
         </div>
-
-        <div
-          className={`absolute  left-3 top-0 z-1 ${
-            props.type == Filter.Game
-              ? "bg-[rgba(255,102,203,1)]"
-              : "bg-[rgba(64,195,255,1)]"
-          }  w-4 h-[30px]`}
-        ></div>
 
         <div className="opacity-0 absolute top-0 left-0 bg-[#606060db] hover:opacity-100 min-w-full min-h-full flex justify-center items-center flex-col text-center transition-opacity duration-300 ease-in-out">
           <span className="font-bold text-2xl">{props.hoverTitle}</span>
@@ -280,11 +257,13 @@ function FireEyes() {
 const DemoReel = () => {
   return (
     <>
-      <h1 className="text-l font-semibold text-neutral-400 mb-3">Demo Reel</h1>
+      <h1 className="text-2xl font-normal text-neutral-400 mb-3 w-full">
+        Demo Reel
+      </h1>
 
       <iframe
-        className="w-full h-[450px]"
-        src="https://www.youtube.com/embed/2SvdoHie9yc"
+        className="w-full h-[600px]"
+        src="https://www.youtube.com/embed/2SvdoHie9yc?showinfo=1&controls=1&autohid=1&rel=0&start=30&color=white"
         frameBorder="0"
         allowFullScreen
       />
