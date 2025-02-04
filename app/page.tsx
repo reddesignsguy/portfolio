@@ -90,73 +90,21 @@ export default function Home() {
         <FireEyes />
         <h1
           style={{ textShadow: "2px 2px 4px rgba(53, 53, 53, 0.5)" }}
-          className="font-bold text-center items-center leading-none tracking-tight  text-2xl md:text-4xl lg:text-5xl text-white sticky"
+          className="mx-12 font-bold text-center items-center leading-none tracking-tight  text-2xl md:text-4xl lg:text-5xl text-white sticky"
         >
           Hi, I&apos;m Albany! I&apos;m a game developer and software engineer
           based in the Bay Area.
         </h1>
       </div>
       {/* After Hero Section */}
-      <div className="mt-[calc(100vh-4rem)] mb-36 z-20 relative">
+      <div className="mt-[calc(100vh-4rem)] mb-36 z-20 relative ">
         {/* Background that scrolls over hero component */}
         <div className="absolute top-[40rem] inset-0 bg-[rgb(13,12,13)] z-0" />
         <div className="relative h-[40rem] bg-gradient-to-t from-[rgb(13,12,13)] to-transparent"></div>
         {/* About Me */}
-        <div className="flex justify-center flex-col items-center gap-5	relative bottom-[15rem] z-20 h-[calc(100vh-15rem)] ">
-          {" "}
-          <h1 className="text-4xl font-light">
-            Hello! I&apos;m Albany Patriawan.
-          </h1>
-          <p className="text-lg max-w-3xl text-left  indent-5">
-            I obtained my B.S. in Software Engineering from{" "}
-            <b className="text-pink-400">SJSU</b>. I was a Software Developer
-            Engineer Intern at <b className="text-pink-400">Zillow</b> in 2023
-            and Python and Java tutor at{" "}
-            <b className="text-pink-400">Talentnook</b> from 2020-2023. I am
-            looking for software engineering and gameplay programming roles.
-            {/* <br /> <br /> */}
-          </p>
-          {/* <br /> */}
-          {/* <p className="text-lg max-w-3xl text-center">
-            {" "}
-            Here&apos;s a game dev reel of my work:{" "}
-          </p> */}
-          {/* <p className="text-lg max-w-3xl text-center">
-            {" "}
-            An overview of my skills:{" "}
-          </p>
-          <CustomTable headers={headers} data={data} />
-          <p className="text-lg max-w-3xl text-left">
-            Though I enjoy many areas of games programming, I have experience
-            with or have an interest for:
-          </p>
-          <p className="text-lg max-w-3xl text-left">
-            <ul className="list-disctext-left">
-              <ul>
-                <li>
-                  <b className="text-pink-400">Genres:</b> RPG, action,
-                  adventure, shooter, FPS, and narrative-driven
-                </li>
-                <li>
-                  <b className="text-pink-400">Areas:</b> Gameplay programming,
-                  animation &#40;IK, motion matching, traditional FSMs&#41;,
-                  behavior trees for AI, backend systems &#40;inventory, quests,
-                  dialogue, saving, progression&#41;, and UI systems
-                </li>
-                <li>
-                  <b className="text-pink-400">Engines:</b> Unity, ROBLOX
-                  Studio, and Pygame
-                </li>
-                <li>
-                  <b className="text-pink-400">Languages:</b> C#, C++, and Lua
-                </li>
-              </ul>
-            </ul>
-          </p> */}
-          {/* <h1 className="text-3xl font-light">Projects</h1> */}
-        </div>
+
         {/* Work */}
-        <div className="flex justify-center flex-col items-center gap-5	relative z-20 ">
+        <div className="flex mt-[12rem] max-w-3xl justify-center flex-col items-center gap-5	relative z-20 ">
           <h1 className="mt-[h-screen] text-4xl font-light">
             Check out my work :)
           </h1>
@@ -195,7 +143,8 @@ function Gallery() {
   };
 
   return (
-    <div className="relative bg-[rgba(1,1,1,1)] max-w-3xl p-6 rounded-lg">
+    <>
+      {/* <div className="relative bg-[rgba(1,1,1,1)] p-6 rounded-lg"> */}
       {/* <h1 className="text-4xl font-bold flex justify-center mb-2">Projects</h1> */}
       <h1 className="text-l font-semibold text-neutral-400">Portfolio</h1>
       <div
@@ -254,7 +203,8 @@ function Gallery() {
             />
           ))}
       </div>
-    </div>
+      {/* </div> */}
+    </>
   );
 }
 
@@ -408,20 +358,15 @@ function FireEyes() {
 
 const DemoReel = () => {
   return (
-    <div className="w-[90%] max-w-3xl h-fit mx-auto items-center">
-      {/* <h2 className="text-4xl font-bold mb-4"> Game Dev Reel </h2> */}
-      <div className="w-full h-full p-5 bg-[rgba(1,1,1,1)] rounded-xl">
-        <h1 className="text-l font-semibold text-neutral-400 mb-3">
-          Demo Reel
-        </h1>
+    <>
+      <h1 className="text-l font-semibold text-neutral-400 mb-3">Demo Reel</h1>
 
-        <iframe
-          className="w-full h-[450px]"
-          src="https://www.youtube.com/embed/2SvdoHie9yc"
-          frameBorder="0"
-          allowFullScreen
-        />
-      </div>
-    </div>
+      <iframe
+        className="w-full h-[450px]"
+        src="https://www.youtube.com/embed/2SvdoHie9yc"
+        frameBorder="0"
+        allowFullScreen
+      />
+    </>
   );
 };

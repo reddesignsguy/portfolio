@@ -4,14 +4,14 @@ import { HiOutlineMail } from "react-icons/hi";
 
 export default function NavBar() {
   return (
-    <nav className="bg-transparent sticky w-full z-21 top-0 start-0 border-b border-gray-200 border-gray-600">
+    <nav className="bg-transparent sticky w-full z-10001 top-0 start-0 border-b border-gray-200 border-gray-600">
       <div className="max-w-screen-xl flex items-center justify-between mx-auto px-8 py-11 scroll-smooth">
-        <Link href="/#work-section" className="md:order-0">
+        {/*        <Link href="/#work-section" className="md:order-0">
           <span className=" md:flex md:w-auto md:order-1 hidden self-center text-2xl font-semibold whitespace-nowrap text-white md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
             Work
           </span>
         </Link>
-        <div
+        */}      <div
           className=" w-full md:flex md:w-auto md:order-1  p-4 md:p-0 mt-4 text-3xl font-bold border  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 border-0"
           id="navbar-sticky"
         >
