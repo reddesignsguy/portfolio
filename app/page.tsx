@@ -4,6 +4,7 @@ import { useRive } from "@rive-app/react-canvas-lite";
 import NavBar from "./components/NavBar";
 import Link from "next/link";
 import { useState } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 enum Filter {
@@ -74,6 +75,38 @@ const galleryItemsData: GalleryItemProps[] = [
   },
 ];
 
+const text = "Hi, I'm Albany! I like building games and software.";
+
+const textVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.025, duration: 0.2, ease: "easeOut" },
+  }),
+};
+
+function AnimatedHeading() {
+  return (
+    <h1
+      style={{ textShadow: "2px 2px 4px rgba(53, 53, 53, 0.5)" }}
+      className="mx-12 font-bold text-center items-center leading-none tracking-tight text-2xl md:text-4xl lg:text-5xl text-white sticky"
+    >
+      {text.split("").map((char, index) => (
+        <motion.span
+          key={index}
+          custom={index}
+          variants={textVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {char}
+        </motion.span>
+      ))}
+    </h1>
+  );
+}
+
 export default function Home() {
   return (
     <div
@@ -93,12 +126,7 @@ export default function Home() {
       >
         <div className="max-w-7xl">
           <FireEyes />
-          <h1
-            style={{ textShadow: "2px 2px 4px rgba(53, 53, 53, 0.5)" }}
-            className="mx-12 font-bold text-center items-center leading-none tracking-tight  text-2xl md:text-4xl lg:text-5xl text-white sticky"
-          >
-            Hi, I&apos;m Albany! I like building games and software.
-          </h1>
+          <AnimatedHeading />
         </div>
       </div>
       {/* After Hero Section */}
@@ -137,10 +165,17 @@ function Gallery() {
   });
 
   return (
-    <>
+    <motion.div>
       <div className={`transition-all duration-500 overflow-hidden w-full`}>
         {/* Selection bar for filtering */}
-        <div className="flex flex-row justify-between w-full">
+        <motion.div
+          className="flex flex-row justify-between w-full"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+          viewport={{ once: false, amount: 0.2 }} // Controls when it animates
+        >
           <h1 className="text-2xl font-normal text-neutral-400">Portfolio</h1>
           <div className="flex gap-5">
             <span
@@ -168,11 +203,16 @@ function Gallery() {
               Apps
             </span>
           </div>
-        </div>
+        </motion.div>
       </div>
-      <div
+      <motion.div
         id="work-section"
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-10 mx-auto"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ duration: 0.4, ease: "easeInOut" }}
+        viewport={{ once: false, amount: 0.1 }} // Controls when it animates
       >
         {filteredItems.map((item, index) => (
           <GalleryItem
@@ -185,8 +225,8 @@ function Gallery() {
             tags={item.tags}
           />
         ))}
-      </div>
-    </>
+      </motion.div>
+    </motion.div>
   );
 }
 
@@ -256,7 +296,14 @@ function FireEyes() {
 
 const DemoReel = () => {
   return (
-    <>
+    <motion.div
+      className=" mb-3 w-full"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.4, ease: "easeInOut" }}
+      viewport={{ once: false, amount: 0.4 }} // Controls when it animates
+    >
       <h1 className="text-2xl font-normal text-neutral-400 mb-3 w-full">
         Demo Reel
       </h1>
@@ -267,6 +314,6 @@ const DemoReel = () => {
         frameBorder="0"
         allowFullScreen
       />
-    </>
+    </motion.div>
   );
 };
