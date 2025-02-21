@@ -16,7 +16,7 @@ export default function ProjectLayout(info: ProjectInfo) {
     <>
       <div className="grid grid-cols-1 xl:grid-cols-2 grid-rows-1 gap-20 lg:mx-32 md:mx-12 mx-2 text-white ">
         <div className="">
-          <div className="flex flex-row mt-10">
+          <div className="flex flex-row">
             <span className="text-7xl font-bold">{info.title}</span>
             <Image
               alt={info.title}

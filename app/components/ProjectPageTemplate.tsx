@@ -24,7 +24,7 @@ const ProjectPageTemplate: React.FC<ProjectPageTemplateProps> = ({
   return (
     <>
       <NavBar />
-      <div className="font-[family-name:var(--font-geist-sans)] max-w-7xl mx-auto mt-56">
+      <div className="font-[family-name:var(--font-geist-sans)] max-w-7xl mx-auto">
         <ProjectLayout
           title={title}
           description={description}
