@@ -119,7 +119,7 @@ function ScrollDownIcon({ targetId }: { targetId: string }) {
 
   return (
     <motion.div
-      className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center cursor-pointer"
+      className="absolute bottom-4 transform -translate-x-1/2 flex flex-col items-center cursor-pointer"
       animate={{ y: [0, 10, 0] }}
       transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
       onClick={handleScroll}
