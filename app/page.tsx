@@ -8,6 +8,8 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { ChevronDown } from "react-feather";
 import AutoScroll from "./components/AutoScroll";
+import demo_reel from "./../public/static/images/demo-reel.svg";
+import portfolio from "./../public/static/images/portfolio.svg";
 
 enum Filter {
   All = "All",
@@ -206,7 +208,9 @@ function Gallery() {
           transition={{ duration: 0.4, ease: "easeInOut" }}
           viewport={{ once: false, amount: 0.2 }} // Controls when it animates
         >
-          <h1 className="text-2xl font-normal text-neutral-400">Portfolio</h1>
+          {/* <h1 className="text-2xl font-normal text-neutral-400">Portfolio</h1> */}
+          <Image src={portfolio} alt="Portfolio" width={200} height={50} />
+
           <div className="flex gap-5">
             <span
               onClick={() => handleFilterChange(Filter.All)}
@@ -335,7 +339,7 @@ const DemoReel = () => {
       viewport={{ once: false, amount: 0.4 }} // Controls when it animates
     >
       <h1 className="text-2xl font-normal text-neutral-400 mb-3 w-full">
-        Demo Reel
+        <Image src={demo_reel} alt="Demo reel" width={200} height={50} />
       </h1>
 
       <iframe
