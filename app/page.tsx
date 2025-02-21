@@ -27,12 +27,13 @@ const galleryItemsData: GalleryItemProps[] = [
     tags: ["Game Jam", "Team of 2"],
   },
   {
-    href: "/abyss",
-    img: "/static/projects/abyss/Thumbnail.png",
-    type: Filter.Game,
-    hoverTitle: "Abyss",
-    hoverDescription: "Made with C++, GLSL, OpenFrameworks (OpenGL)",
-    tags: ["Academic", "Team of 2"],
+    href: "/attendease",
+    img: "/static/projects/attendease/Thumbnail.png",
+    type: Filter.App,
+    hoverTitle: "Attendease",
+    hoverDescription:
+      "Made the front-end and live updates feature with React, FastAPI, and PostgresSQL",
+    tags: ["Academic", "Team of 4"],
   },
   {
     href: "/ghoul",
@@ -42,6 +43,22 @@ const galleryItemsData: GalleryItemProps[] = [
     hoverDescription:
       "Architected and implemented inventory, checkpoint, UI, and object-interaction systems",
     tags: ["Game Jam", "Team of 5"],
+  },
+  {
+    href: "/stat_tracker",
+    img: "/static/projects/stat_tracker/thumbnail.png",
+    type: Filter.App,
+    hoverTitle: "Wingsuit World Stat Tracker",
+    hoverDescription: "Made with React, Express, Node, MySQL, and Docker",
+    tags: ["Personal", "Solo"],
+  },
+  {
+    href: "/abyss",
+    img: "/static/projects/abyss/Thumbnail.png",
+    type: Filter.Game,
+    hoverTitle: "Abyss",
+    hoverDescription: "Made with C++, GLSL, OpenFrameworks (OpenGL)",
+    tags: ["Academic", "Team of 2"],
   },
   {
     href: "/ethereal",
@@ -58,7 +75,7 @@ const galleryItemsData: GalleryItemProps[] = [
     type: Filter.Game,
     hoverTitle: "SeaPirates",
     hoverDescription: "Made with C++ and OpenFrameworks",
-    tags: ["Academic"],
+    tags: ["Academic", "Solo"],
   },
   {
     href: "/wingsuit",
@@ -66,16 +83,7 @@ const galleryItemsData: GalleryItemProps[] = [
     type: Filter.Game,
     hoverTitle: "Wingsuit World",
     hoverDescription: "Made with Lua and ROBLOX Studio",
-    tags: ["Personal"],
-  },
-  {
-    href: "/attendease",
-    img: "/static/projects/attendease/Thumbnail.png",
-    type: Filter.App,
-    hoverTitle: "Attendease",
-    hoverDescription:
-      "Made the front-end and live updates feature with React, FastAPI, and PostgresSQL",
-    tags: ["Academic", "Team of 4"],
+    tags: ["Personal", "Solo"],
   },
 ];
 
