@@ -1,8 +1,12 @@
+"use client";
+
 import Link from "next/link";
+import Image from "next/image";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
+import { FiMenu, FiX } from "react-icons/fi";
 import { useState, useEffect } from "react";
-import { FiMenu, FiX } from "react-icons/fi"; // Icons for open/close
+import albanyP from "./../../public/static/images/signature.svg";
 
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -20,7 +24,7 @@ export default function NavBar() {
       <div className="max-w-7xl flex items-center justify-between mx-auto px-8 py-6">
         {/* Name / Logo */}
         <Link href="/" className="text-white text-3xl font-bold">
-          Albany Patriawan
+          <Image src={albanyP} alt="Albany Signature" width={200} height={50} />
         </Link>
 
         {/* Mobile Menu Button */}

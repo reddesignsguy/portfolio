@@ -1,6 +1,6 @@
 import NavBar from "../components/NavBar";
 
-import { ProjectLayout } from "../components/ProjectLayout";
+import ProjectLayout from "../components/ProjectLayout";
 
 export default function Inertia() {
   return (

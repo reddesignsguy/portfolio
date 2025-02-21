@@ -11,7 +11,7 @@ export interface ProjectInfo {
   itchWidget?: string;
 }
 
-export function ProjectLayout(info: ProjectInfo) {
+export default function ProjectLayout(info: ProjectInfo) {
   return (
     <>
       <div className="grid grid-cols-1 xl:grid-cols-2 grid-rows-1 gap-20 lg:mx-32 md:mx-12 mx-2 text-white ">
