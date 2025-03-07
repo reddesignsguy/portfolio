@@ -14,10 +14,6 @@ export interface ProjectInfo {
   externalLinkThumb?: string;
 }
 
-const projectsDirectory: string = "../../public/static/projects";
-
-import a from "../../public/static/projects/wegogym/Thumbnail.png";
-
 export default function ProjectLayout(info: ProjectInfo) {
   return (
     <>
