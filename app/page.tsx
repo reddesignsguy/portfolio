@@ -27,6 +27,14 @@ const galleryItemsData: GalleryItemProps[] = [
     tags: ["Game Jam", "Team of 2"],
   },
   {
+    href: "/wegogym",
+    img: "/static/projects/wegogym/thumbnail.png",
+    type: Filter.App,
+    hoverTitle: "WeGoGym",
+    hoverDescription: "Developed and deployed frontend and backend",
+    tags: ["Personal", "Solo"],
+  },
+  {
     href: "/attendease",
     img: "/static/projects/attendease/Thumbnail.png",
     type: Filter.App,
