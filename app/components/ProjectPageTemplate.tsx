@@ -7,9 +7,11 @@ interface ProjectPageTemplateProps {
   description: string;
   descriptionHiglighted: string;
   highlights: string[];
-  youtube: string;
-  itch: string;
-  itchWidget: string;
+  youtube?: string;
+  itch?: string;
+  itchWidget?: string;
+  externalLink?: string;
+  externalLinkThumb?: string;
 }
 
 const ProjectPageTemplate: React.FC<ProjectPageTemplateProps> = ({
@@ -20,6 +22,8 @@ const ProjectPageTemplate: React.FC<ProjectPageTemplateProps> = ({
   youtube,
   itch,
   itchWidget,
+  externalLink,
+  externalLinkThumb,
 }) => {
   return (
     <>
@@ -33,6 +37,8 @@ const ProjectPageTemplate: React.FC<ProjectPageTemplateProps> = ({
           youtube={youtube}
           itch={itch}
           itchWidget={itchWidget}
+          externalLink={externalLink}
+          externalLinkThumb={externalLinkThumb}
         />
       </div>
     </>

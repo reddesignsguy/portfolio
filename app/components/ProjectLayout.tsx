@@ -1,15 +1,22 @@
 "use client";
 import Image from "next/image";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 export interface ProjectInfo {
   title: string;
   description: string;
   descriptionHiglighted: string;
   highlights: string[];
-  youtube: string;
+  youtube?: string;
   itch?: string;
   itchWidget?: string;
+  externalLink?: string;
+  externalLinkThumb?: string;
 }
+
+const projectsDirectory: string = "../../public/static/projects";
+
+import a from "../../public/static/projects/wegogym/Thumbnail.png";
 
 export default function ProjectLayout(info: ProjectInfo) {
   return (
@@ -38,15 +45,16 @@ export default function ProjectLayout(info: ProjectInfo) {
           </ul>
         </div>
         <div className="mt-10">
-          <div className="relative pb-[56.25%] w-full h-0">
-            <iframe
-              className="absolute top-0 left-0 w-full h-full"
-              src={info.youtube}
-              frameBorder="0"
-              allowFullScreen
-            />
-          </div>
-
+          {info.youtube && (
+            <div className="relative pb-[56.25%] w-full h-0">
+              <iframe
+                className="absolute top-0 left-0 w-full h-full"
+                src={info.youtube}
+                frameBorder="0"
+                allowFullScreen
+              />
+            </div>
+          )}
           {info.itchWidget && info.itch && (
             <iframe
               className="rounded-lg mt-10 w-full shadow-[4px_4px_0px_rgba(255,102,203,1),_-6px_-6px_0px_rgba(64,195,255,1)] p-6"
@@ -57,6 +65,25 @@ export default function ProjectLayout(info: ProjectInfo) {
             >
               <a href={info.itch}></a>
             </iframe>
+          )}
+
+          {info.externalLink && info.externalLinkThumb && (
+            <a
+              href="https://wegogym.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative block overflow-hidden rounded-lg shadow-lg hover:opacity-90 transition"
+            >
+              <img
+                src="/static/projects/wegogym/thumbnail.png"
+                alt="Clickable Image"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute bottom-0 left-0 w-full bg-black bg-opacity-40 text-white items-center flex flex-row gap-3 justify-center text-sm py-2 text-lg">
+                <span>Visit Project</span>
+                <FaExternalLinkAlt />
+              </div>
+            </a>
           )}
         </div>
       </div>
