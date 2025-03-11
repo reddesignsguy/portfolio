@@ -19,14 +19,14 @@ export default function ProjectLayout(info: ProjectInfo) {
     <>
       <div className="grid grid-cols-1 xl:grid-cols-2 grid-rows-1 gap-20 lg:mx-32 md:mx-12 mx-2 text-white ">
         <div className="">
-          <div className="flex flex-row">
+          <div className="flex flex-col sm:flex-row">
             <span className="text-7xl font-bold">{info.title}</span>
             <Image
               alt={info.title}
               width={0}
               height={0}
               sizes="100vw"
-              className="ml-5 w-32 flex mt-auto mr-10 h-auto"
+              className="ml-5 w-32 flex mt-auto mr-10 h-auto max-w-full sm:mr-0 sm:mt-5"
               src="static/vectors/title-block.svg"
             ></Image>
           </div>
