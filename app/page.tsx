@@ -95,7 +95,7 @@ const galleryItemsData: GalleryItemProps[] = [
   },
 ];
 
-const text = "Hi, I'm Albany! I like building games and software.";
+const text = "Hi, I'm Albany! I like building things.";
 
 const textVariants = {
   hidden: { opacity: 0, y: 30 },
